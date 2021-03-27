@@ -1,0 +1,39 @@
+<view class="container">
+  <swiper>
+    <swiper-item>
+      <!-- <view class="position">
+        <view class="icon3">
+          <image class="position-img" src="../../images/位置.png"/>
+        </view>
+        <view class="position-text">北京</view>
+      </view> -->
+      <view class="position">
+        <view class="icon3">
+          <image class="position-img" src="../../images/position.png"/>
+        </view>
+        <text>北京</text>
+      </view>
+      
+      <view class="search">
+        <view class="icon">
+          <image class="magnifier" src="../../images/search.png"/>
+        </view>
+        <input type="text" placeholder="请输入商品"/>
+        <view class="icon2">
+          <image class="scan" src="../../images/scan.png" bindtap='getScancode'/>
+        </view>
+      </view>
+      <image src='../../images/1.jpg' class="swiper-img"></image>
+    </swiper-item>
+    <swiper-item>
+      <input type="text" placeholder="请输入商品"/>
+      <image src='../../images/2.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <input type="text" placeholder="请输入商品"/>
+      <image src='../../images/3.jpg'></image>
+    </swiper-item>
+  </swiper>
+  <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取用户信息</button>
+  <image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKWpOA5Cia8dIh7ktEIGApp7rOmmJ36dHV9BZewwHVu0S2tCyFNJxhb1MDWMPR9Dndfh3rUxfgLYhQ/132"/> -->
+</view>
