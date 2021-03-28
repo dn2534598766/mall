@@ -1,32 +1,89 @@
 page{
   width: 100%;
   height: 100%;
+  background-color: #f6f6f6;
 }
 .container{
   width: 100%;
   height: 100%;
-  background-color: aqua;
 }
 swiper{
+  margin: auto;
+  margin-top: 2%;
   height: 26%;
-  width: 100%;
+  width: 95%;
+  
 }
 .swiper-img{
   height: 100%;
   width: 100%;
+  border-radius: 10rpx;
 }
 .search{
+  width: 80%;
+  height: 5%;
+  display: flex;
+  flex-direction: row;
+  border:1px solid slategray;
+  border-radius: 50rpx;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+  align-items: center;
+  align-self: center;
+  margin: auto;
+  margin-top: 2%;
+  justify-content: space-between;
+}
+.item-recommend{
+  width: 100%;
+  height: 13%;
+}
+.recommend{
+  width: 46.25%;
+  background: white;
+  height: 100%;
+  display: flex;
+  margin-top: 2%;
+  margin-left: 2.5%;
+  float: left;
+}
+.recommend2{
+  width: 46.25%;
+  background: white;
+  height: 100%;
+  display: flex;
+  margin-top: 2%;
+  margin-right: 2.5%;
+  float: right;
+}
+.recommend-text{
+  height: 100%;
+  flex: 1;
+}
+.top{
+  font-weight: bold;
+  text-align: center;
+  margin-top: 25%;
+}
+.bottom{
+  text-align: center;
+  color: darkgray;
+}
+.recommend-img{
+  height: 100%;
+  flex: 1;
+}
+/* .search{
   position: absolute;
   top: 5%;
   right: 20%;
   width: 60%;
-  /* border: 6rpx solid white; */
   background-color: white;
   border-radius: 50rpx;
   height: 15%;
-}
+} */
 
-.icon{
+/* .icon{
   width: 10%;
   height: 100%;
   float: left;
@@ -67,7 +124,7 @@ input{
   justify-content: center;
   height: 80%;
   
-}
+} */
 /* .position{
   position: absolute;
   width: 10%;
@@ -96,18 +153,3 @@ input{
   font-size: 80%;
 } */
 
-.position{
-  position: absolute;
-  top: 5%;
-  width: 10%;
-  left: 3%;
-  height: 15%;
-}
-.icon3{
-  height: 100%;
-  width: 100%;
-}
-.position-img{
-  height: 30rpx;
-  width: 30rpx;
-}

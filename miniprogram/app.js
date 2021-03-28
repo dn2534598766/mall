@@ -1,4 +1,5 @@
-//app.js
+wx.cloud.init('./cloudfunctions')
+
 App({
   onLaunch: function () {
    

@@ -1,39 +1,51 @@
 <view class="container">
-  <swiper>
-    <swiper-item>
-      <!-- <view class="position">
-        <view class="icon3">
-          <image class="position-img" src="../../images/位置.png"/>
-        </view>
-        <view class="position-text">北京</view>
-      </view> -->
-      <view class="position">
-        <view class="icon3">
-          <image class="position-img" src="../../images/position.png"/>
-        </view>
-        <text>北京</text>
-      </view>
-      
-      <view class="search">
-        <view class="icon">
-          <image class="magnifier" src="../../images/search.png"/>
-        </view>
-        <input type="text" placeholder="请输入商品"/>
-        <view class="icon2">
-          <image class="scan" src="../../images/scan.png" bindtap='getScancode'/>
-        </view>
-      </view>
-      <image src='../../images/1.jpg' class="swiper-img"></image>
+  <view class="search">
+    <input placeholder="请输入要搜索的商品"/>
+    <image src='cloud://xly-psniq.786c-xly-psniq-1300695130/img/icon/search.png' style="width:50rpx; height:50rpx"/>
+  </view>
+  <swiper autoplay="true" circular="true" interval="2000" >
+    <swiper-item wx:for="{{banner}}" >
+      <image src="{{item.src}}" class="swiper-img"></image>
+    </swiper-item>
+    <!-- <swiper-item>
+      <image src='cloud://xly-psniq.786c-xly-psniq-1300695130/img/swiper/swiper2.jpg' class="swiper-img"></image>
     </swiper-item>
     <swiper-item>
-      <input type="text" placeholder="请输入商品"/>
-      <image src='../../images/2.jpg'></image>
-    </swiper-item>
-    <swiper-item>
-      <input type="text" placeholder="请输入商品"/>
-      <image src='../../images/3.jpg'></image>
-    </swiper-item>
+      <image src='cloud://xly-psniq.786c-xly-psniq-1300695130/img/swiper/swiper1.jpg' class="swiper-img"></image>
+    </swiper-item> -->
   </swiper>
+  <view class="item-recommend">
+  <view class="recommend">
+    <view class="recommend-text">
+      <view class="top">西装西裤</view>
+      <view class="bottom">69元起></view>
+    </view>
+    <image class="recommend-img" src="../../images/suit.png"  />
+  </view>
+  <view class="recommend2">
+    <view class="recommend-text">
+      <view class="top">连衣裙</view>
+      <view class="bottom">低至49元></view>
+    </view>
+    <image class="recommend-img" src="../../images/dress.png"  />
+  </view>
+</view>
+<view class="item-recommend">
+  <view class="recommend">
+    <view class="recommend-text">
+      <view class="top">衬衫</view>
+      <view class="bottom">69元起></view>
+    </view>
+    <image class="recommend-img" src="../../images/shirt.png"  />
+  </view>
+  <view class="recommend2">
+    <view class="recommend-text">
+      <view class="top">短袖</view>
+      <view class="bottom">低至49元></view>
+    </view>
+    <image class="recommend-img" src="../../images/T-shirt.png"  />
+  </view>
+</view>
   <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取用户信息</button>
   <image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKWpOA5Cia8dIh7ktEIGApp7rOmmJ36dHV9BZewwHVu0S2tCyFNJxhb1MDWMPR9Dndfh3rUxfgLYhQ/132"/> -->
 </view>
