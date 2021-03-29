@@ -37,6 +37,34 @@ swiper{
 .item-recommend{
   width: 100%;
   height: 13%;
+  overflow: hidden;
+}
+
+.selected{
+  width: 300rpx;
+  height: 75rpx;
+  margin: auto;
+}
+.selected-img{
+  width: 25%;
+  height: 100%;
+  float: right;
+}
+.selected-img2{
+  width: 25%;
+  height: 100%;
+  float: right;
+}
+.selected-text{
+  height: 100%;
+  width: 50%;
+  float: right;
+  align-items: center;
+  align-self: center;
+  justify-content: space-between;
+  line-height: 75rpx;
+  font-weight: bold;
+  text-align: center;
 }
 .recommend{
   width: 46.25%;
@@ -73,83 +101,34 @@ swiper{
   height: 100%;
   flex: 1;
 }
-/* .search{
-  position: absolute;
-  top: 5%;
-  right: 20%;
-  width: 60%;
-  background-color: white;
-  border-radius: 50rpx;
-  height: 15%;
-} */
+.commodity{
+  margin-top: 2%;
+  height: 550rpx;
+  width: 100%;
 
-/* .icon{
-  width: 10%;
-  height: 100%;
-  float: left;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 2%;
 }
-.icon2{
-  width: 10%;
+.commodity-left{
   height: 100%;
+  width: 46.25%;
+  margin-left: 2.5%;
+  background-color:blue ;
+  display: inline-block;
+  float: left;
+}
+.commodity-right{
+  height: 100%;
+  width: 46.25%;
+  margin-right: 2.5%;
+  background-color: brown;
+  display: inline-block;
   float: right;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 3%;
 }
-.magnifier{
+.commodity-img{
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 80%;
+  height: 65%;
 }
-input{
-  float: left;
-  font-size: 80%;
-  height: 100%;
-  width: 75%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.scan{
+.commodity-tex{
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 80%;
-  
-} */
-/* .position{
-  position: absolute;
-  width: 10%;
-  top: 5%;
-  left: 5%;
-  height: 15%;
-  
-  
+  height: 35%;
+  display: inline-block;
 }
-.icon3{
-  width: 100%;
-  height: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.position-img{
-  width: 100%;
-  height: 100%;
-
-}
-.position-text{
-  width: 100%;
-  height: 80%;
-  color: white;
-  font-size: 80%;
-} */
-

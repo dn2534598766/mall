@@ -7,13 +7,13 @@
     <swiper-item wx:for="{{banner}}" >
       <image src="{{item.src}}" class="swiper-img"></image>
     </swiper-item>
-    <!-- <swiper-item>
-      <image src='cloud://xly-psniq.786c-xly-psniq-1300695130/img/swiper/swiper2.jpg' class="swiper-img"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src='cloud://xly-psniq.786c-xly-psniq-1300695130/img/swiper/swiper1.jpg' class="swiper-img"></image>
-    </swiper-item> -->
   </swiper>
+  <view  class="selected">
+      <image class="selected-img" src="../../images/selected.png"/>
+      <view class="selected-text">今日特惠</view>
+      <image class="selected-img2" src="../../images/selected2.png"/>
+      
+  </view>
   <view class="item-recommend">
   <view class="recommend">
     <view class="recommend-text">
@@ -29,6 +29,7 @@
     </view>
     <image class="recommend-img" src="../../images/dress.png"  />
   </view>
+  <view style="display:inline-block;"></view>
 </view>
 <view class="item-recommend">
   <view class="recommend">
@@ -46,6 +47,20 @@
     <image class="recommend-img" src="../../images/T-shirt.png"  />
   </view>
 </view>
+<view class="commodity">
+    <view class="commodity-left">
+      <image class="commodity-img" src="../../images/commodity-suit2.jpg" />
+      <text class="commodity-text">
+        jdalfja
+      </text>
+    </view>
+    <view class="commodity-right">
+      <image class="commodity-img" src="../../images/commodity-suit1.jpg" />
+      <view>
+        
+      </view>
+    </view>
+  </view>
   <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取用户信息</button>
   <image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKWpOA5Cia8dIh7ktEIGApp7rOmmJ36dHV9BZewwHVu0S2tCyFNJxhb1MDWMPR9Dndfh3rUxfgLYhQ/132"/> -->
 </view>
