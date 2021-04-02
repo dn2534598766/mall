@@ -47,12 +47,13 @@
     <image class="recommend-img" src="../../images/T-shirt.png"  />
   </view>
 </view>
-<view class="commodity">
-    <view class="commodity-left">
-      <image class="commodity-img" src="../../images/commodity-suit2.jpg" />
+
+
+<view class="commodity"  wx:for="{{commodity}}">
+      <image class="commodity-img" src="{{item.src}}"/>
       <view class="commodity-text">
         <view class="commodity-name">
-          男士西服套装韩版修身职业商务正装
+          {{item.name}}
         </view>
         <view class="commodity-label">
           满69包邮
@@ -62,81 +63,14 @@
         </view>
         <view class="commodity-line">
           <view class="commodity-price">
-            ￥79.9
+            ￥{{item.price}}
           </view>
           <image class="commodity-img2" src="../../images/add.png" />
         </view>
       </view>
       
-    </view>
-    <view class="commodity-right">
-      <image class="commodity-img" src="../../images/commodity-suit1.jpg" />
-      <view class="commodity-text">
-        <view class="commodity-name">
-          男士西服套装韩版修身职业商务正装
-        </view>
-        <view class="commodity-label">
-          满69包邮
-        </view>
-        <view class="commodity-num">
-          已售0件
-        </view>
-        <view class="commodity-line">
-          <view class="commodity-price">
-            ￥79.9
-          </view>
-          <image class="commodity-img2" src="../../images/add.png" />
-        </view>
-      </view>
-    </view>
   </view>
 
-
-
-
-  <view class="commodity">
-    <view class="commodity-left">
-      <image class="commodity-img" src="../../images/commodity-suit2.jpg" />
-      <view class="commodity-text">
-        <view class="commodity-name">
-          男士西服套装韩版修身职业商务正装
-        </view>
-        <view class="commodity-label">
-          满69包邮
-        </view>
-        <view class="commodity-num">
-          已售0件
-        </view>
-        <view class="commodity-line">
-          <view class="commodity-price">
-            ￥79.9
-          </view>
-          <image class="commodity-img2" src="../../images/add.png" />
-        </view>
-      </view>
-      
-    </view>
-    <view class="commodity-right">
-      <image class="commodity-img" src="../../images/commodity-suit1.jpg" />
-      <view class="commodity-text">
-        <view class="commodity-name">
-          男士西服套装韩版修身职业商务正装
-        </view>
-        <view class="commodity-label">
-          满69包邮
-        </view>
-        <view class="commodity-num">
-          已售0件
-        </view>
-        <view class="commodity-line">
-          <view class="commodity-price">
-            ￥79.9
-          </view>
-          <image class="commodity-img2" src="../../images/add.png" />
-        </view>
-      </view>
-    </view>
-  </view>
   <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取用户信息</button>
   <image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKWpOA5Cia8dIh7ktEIGApp7rOmmJ36dHV9BZewwHVu0S2tCyFNJxhb1MDWMPR9Dndfh3rUxfgLYhQ/132"/> -->
 </view>

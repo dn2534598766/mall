@@ -104,28 +104,16 @@ swiper{
 .commodity{
   margin-top: 2%;
   height: 600rpx;
-  width: 100%;
-
-}
-.commodity-left{
-  height: 100%;
   width: 46.25%;
   margin-left: 2.5%;
-  display: inline-block;
   float: left;
-  background-color: white;
 }
-.commodity-right{
-  height: 100%;
-  width: 46.25%;
-  margin-right: 2.5%;
-  background-color: white;
-  display: inline-block;
-  float: right;
-}
+
 .commodity-img{
   width: 100%;
-  height: 390rpx;
+  /* height: 390rpx; */
+  height: 150px;
+  width: 150px;
 }
 .commodity-text{
   width: 100%;
@@ -144,6 +132,7 @@ swiper{
   width: 150rpx;
   height: 40rpx;
   background-color:pink;
+  line-height: 40rpx;
   color: red;
   text-align: center;
 }
