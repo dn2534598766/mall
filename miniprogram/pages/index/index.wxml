@@ -50,7 +50,7 @@
 
 
 <view class="commodity"  wx:for="{{commodity}}">
-      <image class="commodity-img" src="{{item.src}}"/>
+      <image class="commodity-img" src="../../images/shirt7.jpg"/>
       <view class="commodity-text">
         <view class="commodity-name">
           {{item.name}}
