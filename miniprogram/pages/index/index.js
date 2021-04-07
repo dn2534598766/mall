@@ -6,7 +6,8 @@ const app = getApp()
 Page({
   data: {
    banner:[],
-   commodity:[]
+   commodity:[],
+   search:[]
   },
 
   onLoad: function() {
@@ -26,6 +27,10 @@ Page({
     db.collection('commodity').get({
       success(res){
         console.log('获取commodity云数据库成功',res)
+        wx.setStorage({
+          data: res.data,
+          key: 'search',
+        })
         that.setData({
           commodity:res.data
         })
@@ -36,10 +41,59 @@ Page({
       }
     })
   },
+  search:function(e){
+    let that=this
+    db.collection('commodity').where({
+      name:{							
+        $regex:e.detail.value,	
+        $options: 'i'
+      }
+      // name:e.detail.value
+    }).get({
+      success:function(res){
+        that.setData({
+          search:res.data
+        })
+        console.log('搜索成功',that.data.search)
+        
+        // wx.setStorage({
+        //   data: res.data,
+        //   key: 'search',
+        // })
+        // console.log(search)
+        if(e.detail.value==""){
+          wx.showToast({
+            title: '输入不能为空',
+            icon:'none'
+          })
+        }else if(that.data.search==''){
+          wx.showToast({
+            title: '未找到商品',
+            icon:'none'
+          })
+        }else{
+          wx.setStorage({
+              data: res.data,
+              key: 'search',
+            })
+           
+          wx.reLaunch({
+            url: '../search/search'
+          })
+        }
+      },
+      fail:function(res){
+        console.log('搜索失败',res)
+      }
+    })
+  },
   getUserInfo(e){
     console.log(e)
     app.getUserInfo=e.detail.userInfo
     console.log(app.getUserInfo)
+  },
+  click(e){
+    console.log(e)
   }
   
   

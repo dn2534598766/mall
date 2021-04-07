@@ -1,0 +1,116 @@
+page{
+  width: 100%;
+}
+.container{
+  width: 100%;
+
+}
+.left{
+  height: 100%;
+  width: 25%;
+  float: left;
+}
+.right{
+  height: 100%;
+  width: 75%;
+  float: right;
+  padding: 0;
+}
+.left-img{
+  height: 100%;
+  width: 100%;
+}
+.section{
+  height: 200rpx;
+}
+.text{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.postage{
+  width: 150rpx;
+  height: 40rpx;
+  background-color:pink;
+  line-height: 40rpx;
+  color: red;
+  text-align: center;
+}
+.sold{
+  width: 100%;
+  color:darkgray;
+  height: 22%;
+}
+
+
+.commodity-line{
+  width: 100%;
+  height: 22%;
+  margin-top: 4%;
+}
+.commodity-price{
+  height: 50rpx;
+  line-height: 50rpx;
+  float: left;
+  color: red;
+}
+.commodity-img2{
+  width: 50rpx;
+  height: 50rpx;
+  float: right;
+  margin-right: 20rpx;
+}
+
+
+
+.objectView{
+  width: 100%;
+  height: 100rpx;
+}
+.btnShow{
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-top:20rpx;
+  margin-left: 20rpx;
+}
+.cehuaDa {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.sideslipMenu {
+  background-color: gray;
+  opacity: 0.8;
+  width: 100%;
+  top:0;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  z-index: 9;
+}
+
+.sideslipMenuItemlist {
+  width: 200rpx;
+  background-color:white;
+  opacity: 0.9;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30rpx;
+}
+
+.sideslipMenuItem {
+  flex: 0.1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 30rpx;
+  border: 1px solid black;
+}

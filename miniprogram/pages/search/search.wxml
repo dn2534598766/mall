@@ -1,0 +1,37 @@
+<view class="cehuaDa" wx:if="{{isShowSideslip}}">
+    <view class="sideslipMenuItemlist">
+      <block wx:for="{{sideslipMenuArr}}">
+        <view class="sideslipMenuItem" id="{{index}}" catchtap="itemClick"
+          data-commodity="{{item}}">
+          {{item}}
+        </view>
+      </block>
+    </view>
+    <view class="sideslipMenu" catchtap="offSideslipMen"></view>
+  </view>
+<view class="container">
+  
+  <view class="objectView">
+    <image class="btnShow" catchtap="show" src="../../images/sort_left.png"/>
+  </view>
+
+
+  <view class="section"  wx:for="{{search}}">
+    <view class="left">
+      <image class="left-img" src="{{item.src}}" />
+    </view>
+    <view class="right">
+      <view class="text">{{item.name}}</view>
+      <view class="postage">满69包邮</view>
+      <view class="sold">已售0件</view>
+      <view class="commodity-line">
+        <view class="commodity-price">
+          ￥{{item.price}}
+        </view>
+        <image class="commodity-img2" src="../../images/cart_press.png" />
+      </view>
+    </view>
+  </view>
+  
+</view>
+

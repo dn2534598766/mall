@@ -148,6 +148,7 @@ swiper{
   height: 50rpx;
   line-height: 50rpx;
   float: left;
+  color: red;
 }
 .commodity-img2{
   width: 50rpx;

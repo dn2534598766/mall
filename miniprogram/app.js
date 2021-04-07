@@ -6,6 +6,8 @@ App({
     
   },
   globaldata:{
-    userInfo:null
+    userInfo:null,
+    search:[],
+    commodity:[]
   }
 })
