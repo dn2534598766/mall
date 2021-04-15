@@ -12,7 +12,6 @@ Page({
 
   onLoad: function() {
     let that=this
-    
     db.collection('swiper').get({
       success(res){
         console.log('获取swiper云数据库成功',res)

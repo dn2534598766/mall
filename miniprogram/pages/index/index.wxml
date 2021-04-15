@@ -71,7 +71,9 @@ data-src="{{item.src}}">
       </view>
       
   </view>
-
+  
+<!-- <open-data type="userAvatarUrl"></open-data>
+<open-data type="userNickName"></open-data> -->
   <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取用户信息</button>
   <image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKWpOA5Cia8dIh7ktEIGApp7rOmmJ36dHV9BZewwHVu0S2tCyFNJxhb1MDWMPR9Dndfh3rUxfgLYhQ/132"/> -->
 </view>
