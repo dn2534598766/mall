@@ -4,7 +4,8 @@
     "pages/search/search",
     "pages/sort/sort",
     "pages/mine/mine",
-    "pages/cart/cart"
+    "pages/cart/cart",
+    "pages/detail/detail"
   ],
   "tabBar": {
     "color": "#dbdbdb",

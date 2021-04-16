@@ -86,13 +86,13 @@ Page({
       }
     })
   },
-  getUserInfo(e){
-    console.log(e)
-    app.getUserInfo=e.detail.userInfo
-    console.log(app.getUserInfo)
-  },
   click(e){
-    console.log(e)
+    console.log(e.currentTarget.dataset)
+    let message=e.currentTarget.dataset
+    wx.navigateTo({
+      url: '../detail/detail?name='+message.name+'&src='+message.src+'&price='
+      +message.price
+    })
   }
   
   
