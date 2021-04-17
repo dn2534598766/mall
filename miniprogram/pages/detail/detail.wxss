@@ -6,4 +6,29 @@ page{
 image{
   height: 600rpx;
   width:100%;
+  display:flex;
+}
+.message{
+  height: 200rpx;
+  background-color: white;
+}
+.cuxiao{
+  height: 100rpx;
+  background-color: pink;
+}
+.price{
+  height: 50rpx;
+  padding-top:20rpx ;
+  padding-left: 20rpx;
+  color: red;
+  float:left;
+  width: 72%;
+}
+.yishou{
+  padding-top:20rpx ;
+  height: 50rpx;
+  float: right;
+  color:gray;
+  width: 20%;
+  padding-right: 20rpx;
 }

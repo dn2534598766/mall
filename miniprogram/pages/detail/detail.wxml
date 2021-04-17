@@ -1,3 +1,9 @@
 <image src="{{src}}"/>
-<view>{{name}}</view>
-<view>{{price}}</view>
+<view class="message">
+  <view class="price">销售价￥{{price}}</view>
+  <view class="yishou">已售0件</view>
+  <!-- <view class="name">{{name}}</view> -->
+</view>
+<view class="cuxiao">
+
+</view>
