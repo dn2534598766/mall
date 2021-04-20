@@ -1,9 +1,15 @@
 <image src="{{src}}"/>
 <view class="message">
-  <view class="price">销售价￥{{price}}</view>
-  <view class="yishou">已售0件</view>
-  <!-- <view class="name">{{name}}</view> -->
+  <view class="left">
+    <view class="price">销售价￥{{price}}</view>
+    <view class="name">{{name}}</view>
+  </view>
+  <view class="right">
+    <view class="yishou">已售0件</view>
+    <view class="share">分享</view>
+  </view>
+  
 </view>
-<view class="cuxiao">
+<button class="cuxiao">
 
-</view>
+</button>

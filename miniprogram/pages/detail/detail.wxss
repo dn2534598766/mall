@@ -1,7 +1,7 @@
 page{
   width: 100%;
   height: 100%;
-  background-color: red;
+  background-color: #f6f6f6;
 }
 image{
   height: 600rpx;
@@ -9,26 +9,52 @@ image{
   display:flex;
 }
 .message{
-  height: 200rpx;
+  height: 190rpx;
   background-color: white;
+  overflow: auto;
+  _height: 1%;
+}
+
+
+.left{
+  height: 98%;
+  padding-top: 2%;
+  padding-left: 2%;
+  width: 78%;
+  float: left;
+}
+.right{
+  height: 98%;
+  padding-top: 2%;
+  width: 20%;
+  float: right;
+}
+.name{
+  font-weight: bold;
+}
+.price{
+  color: red;
+}
+.yishou{
+  color:gray;
+  text-align: center;
+}
+.share{
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: #f6f6f6;
+  width: 70%;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-left: 30%;
+  margin-top: 15%;
+  text-align: center;
 }
 .cuxiao{
   height: 100rpx;
-  background-color: pink;
+  background-color: white;  
+  margin-top: 2%;
 }
-.price{
-  height: 50rpx;
-  padding-top:20rpx ;
-  padding-left: 20rpx;
-  color: red;
-  float:left;
-  width: 72%;
-}
-.yishou{
-  padding-top:20rpx ;
-  height: 50rpx;
-  float: right;
-  color:gray;
-  width: 20%;
-  padding-right: 20rpx;
+button::after {
+  border: none;
 }
