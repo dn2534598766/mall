@@ -1,4 +1,4 @@
-// miniprogram/pages/mine/mine.js
+// pages/setting/setting.js
 Page({
 
   /**
@@ -63,9 +63,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-  setting(){
-    wx.navigateTo({
-      url: '../setting/setting'
-    })
+  address(){
+    wx.navigateTo({ url: '/pages/addressList/index', })
   }
 })

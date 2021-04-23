@@ -1,2 +1,49 @@
-<!--miniprogram/pages/mine/mine.wxml-->
-<text>miniprogram/pages/mine/mine.wxml</text>
+<view class="header">
+  <image src="" class="touxiang" />
+  <text class="name">用户名</text>
+  <view class="vip">
+  <image class="v" src="v.png" style="margin-top:24rpx"/>
+  <text class="b">获取会员专属权益</text>
+</view>
+</view>
+<view class="zhanghao">
+  <view class="yue">0.00<view class="yue2">余额</view></view>
+  <view class="jifen">0<view class="jifen2">积分</view></view>
+  <view class="youhui">0<view class="youhuui2">优惠券</view></view>
+</view>
+<view class="dingdan">
+  <text class="dingdan_text">订单信息</text>
+  <text class="dingdan_text2">查看全部订单 ></text>
+</view>
+<view class="message">
+  <image class="img1" src="./image/pay.png"/>
+  <text class="text1">待付款</text>
+  <image class="img2" src="./image/wait.png"/>
+  <text class="text2">待发货</text>
+  <image class="img3" src="./image/ping.png"/>
+  <text class="text3">待评价</text>
+  <image class="img4" src="./image/tui.png"/>
+  <text class="text4">退款中</text>
+</view>
+<view class="gongneng">
+  <view class="gongneng1">
+    <image class="gongneng_img1" src="./image/pt.png"/>
+    <text class="gongneng_text1">拼团</text>
+    <text class="jiantou">></text>
+  </view>
+  <view class="gongneng2">
+    <image class="gongneng_img2" src="./image/kj.png"/>
+    <text class="gongneng_text2">砍价</text>
+    <text class="jiantou">></text>
+  </view>
+  <view class="gongneng3">
+    <image class="gongneng_img2" src="./image/tj.png"/>
+    <text class="gongneng_text2">推荐</text>
+    <text class="jiantou">></text>
+  </view>
+  <view class="gongneng4" bindtap="setting">
+    <image class="gongneng_img4" src="./image/sz.png"/>
+    <text class="gongneng_text4">账号与安全</text>
+    <text class="jiantou">></text>
+  </view>
+</view>

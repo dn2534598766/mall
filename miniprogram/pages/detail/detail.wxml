@@ -6,10 +6,42 @@
   </view>
   <view class="right">
     <view class="yishou">已售0件</view>
-    <view class="share">分享</view>
+    
   </view>
+  <view class="share">分享</view>
   
 </view>
-<button class="cuxiao">
-
-</button>
+<view class="cuxiao">
+  <text class="title">促销</text>
+  <text class="baoyou">满包邮</text>
+  <text class="itemMessage">满69元,全国包邮</text>
+  <text class="arrow">></text>
+</view>
+<view class="guige">
+  <text class="title">规格</text>
+  <text class="itemMessage">请选择 颜色、尺寸、数量</text>
+  <text class="arrow">></text>
+</view>
+<view class="peisong">
+  <text class="title">配送</text>
+  <image class="gou" src="../../images/√.png"/>
+  <text class="text1">商家配送</text>
+  <image class="gou2" src="../../images/√.png"/>
+  <text class="text2">到店自提</text>
+  <text class="arrow">></text>
+</view>
+<view class="footer">
+<view class="footer2">
+  <image class="mine" src="../../images/detail_mine.png"/>
+  <text class="mine_text">我的</text>
+  <image class="cart" src="../../images/detail_cart.png"/>
+  <text class="cart_text">购物车</text>
+  <image class="index" src="../../images/detail_index.png"/>
+  <text class="index_text">店铺</text>
+</view>
+<button class="btn1">加入购物车</button>
+<button class="btn2">立刻购买</button>
+</view>
+<view class="message2">商品详情</view>
+<image src="{{src}}"/>
+<view class="clear"></view>

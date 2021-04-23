@@ -1,0 +1,27 @@
+<view class="main">
+  <view class='data'>
+   
+    <view class='item'>
+      <text>联系人</text>
+      <input type='text' value="{{name}}" bindinput="bindKeyName" placeholder='收件人'></input>
+    </view>
+     <view class='item'>
+      <text>联系电话</text>
+      <input type='number' value="{{mobile}}" bindinput="bindKeyMobile"  placeholder='11位手机号码'></input>
+    </view>
+     <view class='item'>
+      <text>所在地区</text>
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker">
+          {{region[0]}} {{region[1]}} {{region[2]}}
+        </view>
+      </picker>
+      
+    </view>
+     <view class='item'>
+      <text>详细地址</text>
+      <input type='text' bindinput="bindKeyDetailed"  value="{{detailed}}" placeholder='街道门牌号信息'></input>
+    </view>
+  </view>
+  <view class='btn active' bindtap='submitFun'>保存</view>
+</view>

@@ -1,1 +1,164 @@
-/* miniprogram/pages/cart/cart.wxss */
+/* .tool {
+  position: fixed;
+  left: 0;
+  bottom: 6px;
+  z-index: 3;
+  display: flex;
+  width: 750rpx;
+  align-items: center;
+}
+
+.tool .total {
+  flex: 1;
+  text-align: left;
+  padding: 0 20rpx;
+  font-size: 11pt;
+  color: #999;
+}
+
+.tool .total text {
+  color: #ff6a00;
+  font-size: 15pt;
+}
+
+.tool .gobuy {
+  flex: 1;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #576b95;
+  border: 1rpx solid #576b95;
+  color: #fff;
+  margin: 0 20rpx 0 10rpx;
+}
+.tool-layer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 100%;
+  height: 53px;
+  background-color: #fff;
+  opacity: 0.9;
+  box-shadow: 0 -1px 5px 0 #eee;
+} */
+page {
+  background: #faf9f8;
+}
+ 
+.cart {
+  padding: 100px 0 0 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #999;
+}
+ 
+.cart image {
+  width: 66px;
+  height: 66px;
+  margin-bottom: 20px;
+}
+ 
+.baoyou {
+  font-size: 18px;
+  color: #db2929;
+  padding: 10px;
+}
+ 
+.goods {
+  background: #fff;
+  border-top: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px 10px 0 10px;
+  display: flex;
+}
+ 
+.goods image {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #ddd;
+}
+ 
+.goods .good-cont {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  color: #555;
+  font-size: 14px;
+  padding: 5px;
+  height: 100px;
+}
+ 
+.goods .good-cont .goods-navigator {
+  display: flex;
+  flex: 2;
+}
+ 
+.goods .good-cont .good-price {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+}
+ 
+.goods .good-cont .good-price .price {
+  font-size: 16px;
+  color: #ec5151;
+}
+ 
+.goods .good-cont .good-price .btn-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+ 
+.goods .good-cont .good-price .btn-box image {
+  width: 23px;
+  height: 23px;
+  border: 0;
+  margin: 0;
+}
+ 
+.goods .good-cont .good-price .btn {
+  display: flex;
+  flex-direction: row;
+}
+ 
+.goods .good-cont .good-price .btn input {
+  margin: 0;
+  width: 40px;
+  text-align: center;
+  border: 1px solid #eee;
+  font-size: 16px;
+  height: 28px;
+}
+ 
+.goods .good-cont .good-price .btn button {
+  margin: 0;
+}
+ 
+.total {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+ 
+.total .total_text {
+  display: flex;
+  color: #777;
+}
+ 
+.total .total_text text {
+  color: #ec5151;
+}
+ 
+.total .total_js {
+  color: #fff;
+  background: #ec5151;
+  height: 30px;
+  margin: 0;
+}

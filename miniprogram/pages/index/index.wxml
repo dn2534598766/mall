@@ -17,17 +17,17 @@
   <view class="item-recommend">
   <view class="recommend">
     <view class="recommend-text">
-      <view class="top">西装西裤</view>
+      <view class="top">西装</view>
       <view class="bottom">69元起></view>
     </view>
-    <image class="recommend-img" src="../../images/suit.png"  />
+    <image class="recommend-img" src="cloud://xly-psniq.786c-xly-psniq-1300695130/img/sort/suit.png"  />
   </view>
   <view class="recommend2">
     <view class="recommend-text">
-      <view class="top">连衣裙</view>
-      <view class="bottom">低至49元></view>
+      <view class="top">短裤</view>
+      <view class="bottom">49元起></view>
     </view>
-    <image class="recommend-img" src="../../images/dress.png"  />
+    <image class="recommend-img" src="cloud://xly-psniq.786c-xly-psniq-1300695130/img/sort/short.png"  />
   </view>
   <view style="display:inline-block;"></view>
 </view>
@@ -37,14 +37,14 @@
       <view class="top">衬衫</view>
       <view class="bottom">69元起></view>
     </view>
-    <image class="recommend-img" src="../../images/shirt.png"  />
+    <image class="recommend-img" src="cloud://xly-psniq.786c-xly-psniq-1300695130/img/sort/shirt.png"  />
   </view>
   <view class="recommend2">
     <view class="recommend-text">
       <view class="top">短袖</view>
-      <view class="bottom">低至49元></view>
+      <view class="bottom">59元起></view>
     </view>
-    <image class="recommend-img" src="../../images/T-shirt.png"  />
+    <image class="recommend-img" src="cloud://xly-psniq.786c-xly-psniq-1300695130/img/sort/T-shirt.png"  />
   </view>
 </view>
 

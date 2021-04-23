@@ -1,11 +1,15 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/setting/setting",
+    "pages/addressList/index",
+    "pages/addressAdd/index",
     "pages/search/search",
     "pages/sort/sort",
     "pages/mine/mine",
     "pages/cart/cart",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/pay/index"
   ],
   "tabBar": {
     "color": "#dbdbdb",

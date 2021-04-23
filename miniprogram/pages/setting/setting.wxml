@@ -1,0 +1,38 @@
+
+
+<view class="white">
+<view class="h1">
+  <view class="tx"><image class="clock1" src="tx.jpg"/></view>
+  <view class="name" style="margin-left: 10px;"> 用户名</view>
+  <view class="img1"><mp-icon icon="arrow" color="black" size="{{15}}" color="#C0C0C0"></mp-icon></view>
+</view>
+<view class="hei"></view>
+<view class="h2">
+  <view class="a1" bindtap="address">我的收货地址</view>
+  <view class="img"><mp-icon icon="arrow" color="black" size="{{15}}" color="#C0C0C0"></mp-icon></view>
+</view>
+</view>
+<view class="hui"></view>
+<view class="white">
+<view class="h2">
+  <view class="a1">账户与安全</view>
+  <view class="img"><mp-icon icon="arrow" color="black" size="{{15}}" color="#C0C0C0"></mp-icon></view>
+</view>
+<view class="hei"></view>
+<view class="h2">
+  <view class="a1">支付</view>
+  <view class="img"><mp-icon icon="arrow" color="black" size="{{15}}" color="#C0C0C0"></mp-icon></view>
+</view>
+</view>
+<view class="hui"></view>
+<view class="white">
+<view class="h2">
+  <view class="a1">消息通知</view>
+  <view class="img"><mp-icon icon="arrow" color="black" size="{{15}}" color="#C0C0C0"></mp-icon></view>
+</view>
+<view class="hei"></view>
+<view class="h2">
+  <view class="a1">帮助与反馈</view>
+  <view class="img"><mp-icon icon="arrow" color="black" size="{{15}}" color="#C0C0C0"></mp-icon></view>
+</view>
+</view>

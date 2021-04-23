@@ -13,21 +13,24 @@ image{
   background-color: white;
   overflow: auto;
   _height: 1%;
+  position: relative;
 }
 
 
 .left{
-  height: 98%;
-  padding-top: 2%;
+  height: 190rpx;
+  /* padding-top: 2%; */
   padding-left: 2%;
   width: 78%;
-  float: left;
+  position: absolute;
+  top: 8%;
 }
 .right{
-  height: 98%;
-  padding-top: 2%;
+  height: 190rpx;
   width: 20%;
-  float: right;
+  position: absolute;
+  top: 8%;
+  right: 2%;
 }
 .name{
   font-weight: bold;
@@ -43,11 +46,14 @@ image{
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
   background-color: #f6f6f6;
-  width: 70%;
+  width: 100rpx;
   height: 50rpx;
+  position: absolute;
+  right: 0%;
+  top: 45%;
   line-height: 50rpx;
-  margin-left: 30%;
-  margin-top: 15%;
+  /* margin-left: 30%;
+  margin-top: 15%; */
   text-align: center;
 }
 .cuxiao{
@@ -55,6 +61,151 @@ image{
   background-color: white;  
   margin-top: 2%;
 }
+.title{
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 2%;
+  color: gray;
+}
+.baoyou{
+  height: 100rpx;
+  margin-left: 4%;
+  line-height: 100rpx;
+  background: pink;
+  color: red;
+  text-align: center;
+}
+.itemMessage{
+  height: 100rpx;
+  margin-left: 4%;
+  line-height: 100rpx;
+}
+.arrow{
+  height: 100rpx;
+  /* margin-left: 30%; */
+  position: absolute;
+  right: 4%;
+  line-height: 100rpx;
+  font-size: 40rpx;
+  color: gray;
+}
+.guige{
+  height: 100rpx;
+  background-color: white;  
+  margin-top: 2%;
+}
+.peisong{
+  height: 100rpx;
+  background-color: white;  
+  margin-top: 2%;
+  position: relative;
+}
+.gou{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 35%;
+  left: 15%;
+}
+.text1{
+  height: 100rpx;
+  position: absolute;
+  top: 30%;
+  left: 21%;
+}
+.text2{
+  height: 100rpx;
+  position: absolute;
+  top: 30%;
+  left: 45%;
+}
+.gou2{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 35%;
+  left: 39%;
+}
+.footer{
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  width: 100%;
+  background-color: white;
+  
+}
+.footer2{
+  position: relative;
+  height: 100rpx;
+  width: 100%;
+}
+.mine{
+  height: 50rpx;
+  width: 50rpx;
+  position: absolute;
+  top:18%;
+  left: 2%;
+}
+.cart{
+  height: 50rpx;
+  width: 50rpx;
+  position: absolute;
+  top:18%;
+  left: 15%;
+}
+.mine_text{
+  position: absolute;
+  top:65%;
+  left: 2%;
+  font-size: 25rpx;
+}
+.cart_text{
+  position: absolute;
+  top:65%;
+  left: 14%;
+  font-size: 25rpx;
+}
+.index{
+  height: 50rpx;
+  width: 50rpx;
+  position: absolute;
+  top:18%;
+  left: 28%;
+}
+.index_text{
+  position: absolute;
+  top:65%;
+  left: 28%;
+  font-size: 25rpx;
+}
 button::after {
   border: none;
+}
+button {
+  border-radius:0;
+}
+.btn1{
+  height: 100rpx;
+  width: 240rpx;
+  position: absolute;
+  background-color: darkorange;
+  color: white;
+  left: 38%;
+  top: 0%;
+}
+.btn2{
+  height: 100rpx;
+  width: 230rpx;
+  position: absolute;
+  background-color: red;
+  color: white;
+  left: 70%;
+  top: 0%;
+}
+.message2{
+  height: 50rpx;
+  text-align: center;
+}
+.clear{
+  height: 100rpx;
 }

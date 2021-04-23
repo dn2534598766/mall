@@ -1,0 +1,53 @@
+<view class="Receiving_address">
+    <view>
+        <view class="name_iphone">广东省广州市白云区</view>
+        <view class="address">广东机电职业技术学院北校区</view>
+        <view class="name_iphone">吴昊霖 12345678978</view>
+    </view>
+    <view><image src="images/2.png" class="iconfont icon-arrowright"></image></view>
+</view>
+<view class="goods_msg">
+    <view class="goods_img"><image src="images/5.jpg"></image></view>
+    <view class="goods_content">
+        <view class="goods_content_1">
+        李宁运动短裤男裤2021夏季新品男子棉质舒适吸汗五分裤男复古系列拼块印字时尚短卫裤
+        </view>
+        <view class="name_iphone">颜色:黑色，尺码:S</view>
+        <view class="Total_price">￥118.00</view>
+    </view>
+   
+</view>
+
+
+ 
+<view class="msg_list">
+    <view class="msg_item">
+        <view>配送方式</view>
+        <view class='tran'>快递运输</view>
+    </view>
+    <view class="msg_item">
+        <view>商品总额</view>
+        <view>￥118</view>
+    </view>
+    <view class="msg_item">
+        <view>运费</view>
+        <view class='fare'>免运费</view>
+    </view>
+    <view class="msg_item">
+        <view>商品优惠</view>
+        <view class='fare'>-￥2</view>
+    </view>
+    <view class="Total">
+       总计 <text class="Total_price">￥118</text>
+    </view>
+</view>
+<view class="final_pay">
+    <view class=""><image src='images/3.png' class="iconfont icon-map_line pay_icon"></image>微信支付</view>
+    <view><image src='images/4.png' class="iconfont icon-arrowright pay_icon"></image></view>
+</view>
+<view class="order_pay">
+    <view class="pay_money">总计:<text class="Total_price">￥118</text></view>
+    <view class="submit_order" bindtap="bindSubmitOrder">微信支付</view>
+</view>
+
+
