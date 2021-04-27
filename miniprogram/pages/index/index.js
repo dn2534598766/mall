@@ -91,7 +91,7 @@ Page({
     let message=e.currentTarget.dataset
     wx.navigateTo({
       url: '../detail/detail?name='+message.name+'&src='+message.src+'&price='
-      +message.price
+      +message.price 
     })
   }
   
