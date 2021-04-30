@@ -29,8 +29,8 @@ page{
   white-space: nowrap;
 }
 .postage{
-  width: 150rpx;
-  height: 40rpx;
+  width: 75px;
+  height: 20px;
   background-color:pink;
   line-height: 40rpx;
   color: red;
@@ -47,33 +47,35 @@ page{
   width: 100%;
   height: 22%;
   margin-top: 4%;
+  position: relative;
 }
 .commodity-price{
-  height: 50rpx;
-  line-height: 50rpx;
-  float: left;
+  height: 20px;
   color: red;
+  position: absolute;
+  bottom: 25%;
 }
 .commodity-img2{
-  width: 50rpx;
-  height: 50rpx;
-  float: right;
-  margin-right: 20rpx;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 5%;
+  right: 4%;
 }
 
 
 
 .objectView{
-  width: 20%;
+  width: 25%;
   height: 50px;
+  position: relative;
   /* float: left; */
 }
 .btnShow{
-  width: 60rpx;
-  height: 60rpx;
-  line-height: 60rpx;
-  margin-top:20rpx;
-  margin-left: 20rpx;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 20%;
 }
 .cehuaDa {
   width: 100%;
@@ -118,7 +120,7 @@ page{
 
 
 .search{
-  width: 65%;
+  width: 59%;
   height:35px;
   display: flex;
   flex-direction: row;

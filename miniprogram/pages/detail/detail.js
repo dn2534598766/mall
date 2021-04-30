@@ -1,4 +1,4 @@
-// miniprogram/pages/detail/detail.js
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -7,7 +7,8 @@ Page({
   data: {
     src:'',
     name:'',
-    price:''
+    price:0,
+    id:''
   },
 
   /**
@@ -18,10 +19,43 @@ Page({
     this.setData({
       src:options.src,
       name:options.name,
-      price:options.price
+      price:options.price,
+      id:options.id
     })
   },
-
+  addCart(){
+    let that = this
+    db.collection('shopping_carts').where({
+      id:that.data.id
+    }).get({
+      success(res){
+        console.log(res)
+        if(res.data==''){
+          db.collection('shopping_carts').add({
+            data:{
+              name:that.data.name,
+              src:that.data.src,
+              price:that.data.price,
+              id:that.data.id
+            },
+            success(res){
+              console.log('加入购物车成功'+res)
+              wx.showToast({
+                title: '加入购物车成功!',
+              })
+            },
+            fail(res){
+              console.log(res)
+            }
+          })
+        }else{
+          wx.showToast({
+            title: '购物车已有这件商品',
+          })
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

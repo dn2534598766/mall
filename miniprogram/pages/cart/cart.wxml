@@ -1,51 +1,19 @@
-<!--要是够车内没有数据，就行显示没有数据-->
-<!-- <view class="cart" hidden="{{iscart}}">
-    <image src="../images/cart1.png"/>
-    <view>购物车什么都没有，赶快去购物吧</view>
-</view> -->
-<!--要是有数据，就显示数据-->
-<view class="cartList" hidden="{{iscart}}">
-    <!--header-->
-    <view class="baoyou"></view>
-    <!--list item-->
-    <!-- <block wx:for="{{cart}}"> -->
-        <view class="goods">
-            <!--左侧图片-->
-            <view>
-                <image src="https://786c-xly-psniq-1300695130.tcb.qcloud.la/img/commodity/shorts4.jpg?sign=2ed1ea2759a622f47eeaf32e4e1972d9&t=1619098022" class="good-img"/>
-            </view>
-            <!--右侧说明部分-->
-            <view class="good-cont">
-                <!--文字说明-->
-                <view class="goods-navigator">
-                    <text class="good-name">李宁运动短裤男裤2021夏季新品男子棉质舒适吸汗五分裤男复古系列拼块印字时尚短卫裤</text>
-                </view>
-                <!--价钱和购物加减的父盒子-->
-                <view class="good-price">
-                    <text class="price">￥118</text>
-                    <view class="btn-box">
-                        <view class="btn">
-                            <button id="del{{index}}" type="default" size="mini" bindtap="delCount">-</button>
-                            <input  value="1"/>
-                            <button id="add{{index}}" type="default" size="mini" bindtap="addCount">+</button>
-                        </view>
-                        <image id="img{{index}}" src="../../images/delete.png" bindtap="delGoods"/>
-                    </view>
-                </view>
-            </view>
-        </view>
-    <!-- </block> -->
-    <!--footer-->
-    <view class="total">
-        <view class="total_text">合计：<text>￥118</text></view>
-        <button class="total_js" size="mini"  bindtap="goOrder">去结算1</button>
+<!-- <view class="baoyou">满69元,全国包邮</view> -->
+<view wx:for="{{banner}}">
+  <view class="detail">
+    <view class="round_container">
+      <image class="round" src="../../images/round.png"/>
     </view>
-</view>
+      <image class="picture" src="{{item.src}}"/>
+      <view class="right">
+        <view class="name">{{item.name}}</view>
+        <view class="price">￥{{item.price}}</view>
+        <view class="count">
+          <text class="sub">-</text>
+          <input type="number" value='1' />
+          <text class="add">+</text>
+        </view>
+      </view>
 
-<!-- <view class="tool">
-  <view class="total">总金额：
-    <text>￥{{total}}</text>
   </view>
-  <view class="gobuy" bindtap="goOrder">去结算</view>
 </view>
-<view class="tool-layer"></view> -->

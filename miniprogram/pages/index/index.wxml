@@ -50,7 +50,7 @@
 
 
 <view class="commodity"  wx:for="{{commodity}}" wx:key="this" bindtap="click" data-name="{{item.name}}" data-price="{{item.price}}" 
-data-src="{{item.src}}">
+data-src="{{item.src}}" data-id="{{item.id}}">
 
       <image class="commodity-img" src="{{item.src}}"/>
       <view class="commodity-text">

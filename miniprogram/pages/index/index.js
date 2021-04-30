@@ -90,8 +90,7 @@ Page({
     console.log(e.currentTarget.dataset)
     let message=e.currentTarget.dataset
     wx.navigateTo({
-      url: '../detail/detail?name='+message.name+'&src='+message.src+'&price='
-      +message.price 
+      url: '../detail/detail?name='+message.name+'&src='+message.src+'&price='+message.price+'&id='+message.id
     })
   }
   
