@@ -6,7 +6,7 @@
     </view>
       <image class="picture" src="{{item.src}}"/>
       <view class="right">
-        <view class="name">{{item.name}}</view>
+        <text class="name">{{item.name}}</text>
         <view class="price">￥{{item.price}}</view>
         <view class="count">
           <text class="sub">-</text>

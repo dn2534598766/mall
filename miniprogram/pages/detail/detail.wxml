@@ -1,5 +1,5 @@
 <image src="{{src}}"/>
-<view class="message">
+<view class="message" catchtouchmove="true">
   <view class="left">
     <view class="price">销售价￥{{price}}</view>
     <view class="name">{{name}}</view>

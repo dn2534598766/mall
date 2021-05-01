@@ -186,7 +186,7 @@ button {
 }
 .btn1{
   height: 100rpx;
-  width: 240rpx;
+  width: 260rpx;
   position: absolute;
   background-color: darkorange;
   color: white;

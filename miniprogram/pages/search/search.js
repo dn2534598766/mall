@@ -182,7 +182,47 @@ Page({
       }
     })
   },
-
+  click(e){
+    console.log(e.currentTarget.dataset)
+    let message=e.currentTarget.dataset
+    wx.navigateTo({
+      url: '../detail/detail?name='+message.name+'&src='+message.src+'&price='+message.price+'&id='+message.id
+    })
+  },
+  addCart(e){
+    console.log(e.currentTarget.dataset.id)
+    db.collection('shopping_carts').where({
+      id:e.currentTarget.dataset.id
+    }).get({
+      success(res){
+        console.log(res)
+        if(res.data==''){
+          db.collection('shopping_carts').add({
+            data:{
+              name:e.currentTarget.dataset.name,
+              src:e.currentTarget.dataset.src,
+              price:e.currentTarget.dataset.price,
+              id:e.currentTarget.dataset.id,
+              num:1
+            },
+            success(res){
+              console.log('加入购物车成功'+res)
+              wx.showToast({
+                title: '加入购物车成功!',
+              })
+            },
+            fail(res){
+              console.log(res)
+            }
+          })
+        }else{
+          wx.showToast({
+            title: '购物车已有这件商品',
+          })
+        }
+      }
+    })
+  }
 
 
 })

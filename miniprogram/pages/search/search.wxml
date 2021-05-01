@@ -20,7 +20,8 @@
     <image src='cloud://xly-psniq.786c-xly-psniq-1300695130/img/icon/search.png' style="width:50rpx; height:50rpx"/>
   </view>
 
-  <view class="section"  wx:for="{{search}}">
+  <view class="section"  wx:for="{{search}}" bindtap="click"  data-name="{{item.name}}" data-price="{{item.price}}" 
+data-src="{{item.src}}" data-id="{{item.id}}">
     <view class="left">
       <image class="left-img" src="{{item.src}}" />
     </view>
@@ -32,7 +33,8 @@
         <view class="commodity-price">
           ￥{{item.price}}
         </view>
-        <image class="commodity-img2" src="../../images/cart_press.png" />
+        <image class="commodity-img2" catchtap="addCart" data-name="{{item.name}}" data-price="{{item.price}}" 
+data-src="{{item.src}}" data-id="{{item.id}}" src="../../images/cart_press.png" />
       </view>
     </view>
   </view>
