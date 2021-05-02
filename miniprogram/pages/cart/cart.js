@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    banner:[]
+    banner:[],
+    control:false
   },
 
   /**
@@ -73,5 +74,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  xuanze(e){
+    console.log(e)
+  },
+  all(){
+    this.setData({
+      control:!this.data.control
+    })
   }
 })

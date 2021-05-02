@@ -1,19 +1,23 @@
-<!-- <view class="baoyou">满69元,全国包邮</view> -->
+<checkbox-group bindchange="xuanze">
 <view wx:for="{{banner}}">
   <view class="detail">
     <view class="round_container">
-      <image class="round" src="../../images/round.png"/>
+      <checkbox class="xuanze" value="{{item.id}}"></checkbox>
     </view>
       <image class="picture" src="{{item.src}}"/>
       <view class="right">
         <text class="name">{{item.name}}</text>
         <view class="price">￥{{item.price}}</view>
         <view class="count">
-          <text class="sub">-</text>
+          <image src="../../images/cart_sub.png" class="sub" />
           <input type="number" value='1' />
-          <text class="add">+</text>
+          <image src="../../images/cart_add.png" class="add"/>
         </view>
       </view>
 
   </view>
+</view>
+</checkbox-group>
+<view class="footer">
+  <radio bindtap="all" color="red" checked="{{control}}">全选</radio>
 </view>

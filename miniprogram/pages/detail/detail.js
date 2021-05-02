@@ -8,7 +8,8 @@ Page({
     src:'',
     name:'',
     price:0,
-    id:''
+    id:'',
+
   },
 
   /**
