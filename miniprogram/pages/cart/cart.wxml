@@ -1,8 +1,10 @@
-<checkbox-group bindchange="xuanze">
-<view wx:for="{{banner}}">
+
+<view wx:for="{{product}}">
   <view class="detail">
     <view class="round_container">
-      <checkbox class="xuanze" value="{{item.id}}"></checkbox>
+      <checkbox-group data-id="{{item._id}}" bindchange="xuanze">
+        <checkbox class="xuanze"  checked="{{item.product_checked}}" value="{{item._id}}"></checkbox>
+      </checkbox-group>
     </view>
       <image class="picture" src="{{item.src}}"/>
       <view class="right">
@@ -17,7 +19,15 @@
 
   </view>
 </view>
-</checkbox-group>
+
 <view class="footer">
-  <radio bindtap="all" color="red" checked="{{control}}">全选</radio>
+  <radio class="all" bindtap="all" color="red" checked="{{control}}">
+    <text class="all_text">全选</text>
+  </radio>
+  <view class="clear">删除</view>
+  <view class="sum">总价:
+    <text class="footer_price">￥{{money}}</text>
+    <view class="footer_text">(不含运费)</view>
+  </view>
+  <button class="pay">去结算()</button>
 </view>

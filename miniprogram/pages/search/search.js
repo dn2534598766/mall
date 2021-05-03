@@ -203,7 +203,8 @@ Page({
               src:e.currentTarget.dataset.src,
               price:e.currentTarget.dataset.price,
               id:e.currentTarget.dataset.id,
-              num:1
+              num:1,
+              product_checked:""
             },
             success(res){
               console.log('加入购物车成功'+res)

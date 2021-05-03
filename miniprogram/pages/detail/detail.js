@@ -38,7 +38,8 @@ Page({
               src:that.data.src,
               price:that.data.price,
               id:that.data.id,
-              num:1
+              num:1,
+              product_checked:""
             },
             success(res){
               console.log('加入购物车成功'+res)
