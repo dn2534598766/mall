@@ -7,9 +7,10 @@ Page({
    */
   data: {
     product:[],
-    control:false,
+    control:"",
     money:0,
-    delet_id:[]
+    delet_id:[],
+    count:0
   },
 
   /**
@@ -28,6 +29,7 @@ Page({
         console.log('获取购物车商品失败',res)
       }
     })
+    // this.number()
   },
 
   /**
@@ -41,18 +43,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let that=this
-    db.collection('shopping_carts').get({
-      success(res){
-        console.log('获取shopping_carts云数据库成功',res)
-        that.setData({
-          product:res.data
-        })
-      },
-      err(res){
-        console.log('获取shopping_carts云数据库失败',res)
-      }
-    })
+    // let that=this
+    // db.collection('shopping_carts').get({
+    //   success(res){
+    //     console.log('获取shopping_carts云数据库成功',res)
+    //     that.setData({
+    //       product:res.data
+    //     })
+    //   },
+    //   err(res){
+    //     console.log('获取shopping_carts云数据库失败',res)
+    //   }
+    // })
   },
 
   /**
@@ -95,8 +97,10 @@ Page({
     this.setData({
       delet_id:that.data.delet_id.concat(e.detail.value[0])
     })
+    
     // console.log(e.target.dataset.id)
     if(e.detail.value.length !== 0){
+      
       db.collection('shopping_carts').doc(e.target.dataset.id).update({
         data:{
           product_checked:"true",
@@ -104,6 +108,17 @@ Page({
           that.onLoad()
         }
       })
+      for(let x=0;x<that.data.product.length;x++){
+        if(that.data.product[x].checked==""){
+          that.setData({
+            control:""
+          })
+        }else{
+          that.setData({
+            control:"true"
+          })
+        }
+      }
     }else{
       db.collection('shopping_carts').doc(e.target.dataset.id).update({
         data:{
@@ -112,13 +127,55 @@ Page({
           that.onLoad()
         }
       })
+      for(let x=0;x<that.data.product.length;x++){
+        if(that.data.product[x].checked==""){
+          that.setData({
+            control:""
+          })
+          return
+        }else{
+          that.setData({
+            control:"true"
+          })
+        }
+      }
     }
     
   },
-  all(){
-    this.setData({
-      control:!this.data.control
-    })
+  all(e){
+    let that = this
+    
+      if(that.data.control==""){
+        for(let x=0;x<that.data.product.length;x++){
+          db.collection('shopping_carts').doc(that.data.product[x]._id).update({
+            data:{
+              product_checked:"true",
+            },success:function(res){
+              that.onLoad()
+            }
+          })
+        }
+          this.setData({
+            control:"true"
+          })
+        }
+        else if(that.data.control=="true"){
+          for(let x=0;x<that.data.product.length;x++){
+          db.collection('shopping_carts').doc(that.data.product[x]._id).update({
+            data:{
+              product_checked:""
+            },
+            success:function(){
+              that.onLoad()
+            }
+          })
+        }
+          this.setData({
+            control:""
+          })
+          
+    }
+    
     
   },
   get_money_sum(){
@@ -133,5 +190,87 @@ Page({
     that.setData({
       money:money_sum
     })
-  }
+  },
+  add(e){
+    let that = this
+    // console.log(e.currentTarget.dataset.id)
+    db.collection('shopping_carts').doc(e.currentTarget.dataset.id).update({
+      data:{
+        num:_.inc(1)
+      },
+      success(res){
+        console.log("商品数量+1",res)
+        that.onLoad()
+      },
+      fail(res){
+        console.log("获取商品价格失败",res)
+      }
+    })
+  },
+  sub(e){
+    let that = this
+    console.log(e.currentTarget.dataset.id)
+    db.collection('shopping_carts').doc(e.currentTarget.dataset.id).update({
+      data:{
+        num:_.inc(-1)
+      },
+      success(res){
+        console.log("商品数量-1",res)
+        that.onLoad()
+      },
+      fail(res){
+        console.log("获取商品价格失败",res)
+      }
+    })
+  },
+  delete:function(){
+    let that = this
+    wx.cloud.callFunction({
+      name:"product_delet",
+      success:function(res){
+        console.log('删除商品成功',res)
+        that.onLoad()
+        that.setData({
+          control:""
+        })
+      },fail:function(res){
+        console.log('删除商品失败',res)
+      }
+    })
+  },
+  pay(e){
+    let that = this
+    db.collection('shopping_carts').where({
+      product_checked:"true"
+    }).get({
+      success:function(res){
+        console.log('获取商品成功',res)
+        if(res.data.length == 0){
+          wx.showToast({
+            title: '你还未选择商品',
+            icon:"none"
+          })
+        }else{
+          wx.redirectTo({
+            url: '../pay/index'
+          })
+        }
+      },fail:function(res){
+        console.log('获取商品失败',res)
+      }
+    })
+  },
+  // number(){
+  //   let that = this
+  //   let count=that.data.count
+  //   for(let x=0;x<that.data.product.length;x++){
+  //     if(that.data.product[x].product_checked==""){
+  //       count++
+  //     }
+  //   }
+  //   that.setData({
+  //     count:count
+  //   })
+  // }
+  
 })

@@ -1,5 +1,5 @@
 
-<view wx:for="{{product}}">
+<view wx:for="{{product}}"wx:key="_id">
   <view class="detail">
     <view class="round_container">
       <checkbox-group data-id="{{item._id}}" bindchange="xuanze">
@@ -11,9 +11,9 @@
         <text class="name">{{item.name}}</text>
         <view class="price">￥{{item.price}}</view>
         <view class="count">
-          <image src="../../images/cart_sub.png" class="sub" />
-          <input type="number" value='1' />
-          <image src="../../images/cart_add.png" class="add"/>
+          <image src="../../images/cart_sub.png" data-id="{{item._id}}" bindtap="sub" class="sub" />
+          <view class="num">{{item.num}}</view>
+          <image src="../../images/cart_add.png" data-id="{{item._id}}" bindtap="add" class="add"/>
         </view>
       </view>
 
@@ -24,10 +24,10 @@
   <radio class="all" bindtap="all" color="red" checked="{{control}}">
     <text class="all_text">全选</text>
   </radio>
-  <view class="clear">删除</view>
+  <view class="clear" bindtap="delete">删除</view>
   <view class="sum">总价:
     <text class="footer_price">￥{{money}}</text>
     <view class="footer_text">(不含运费)</view>
   </view>
-  <button class="pay">去结算()</button>
+  <button class="pay" bindtap="pay">去结算</button>
 </view>

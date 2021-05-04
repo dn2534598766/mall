@@ -65,7 +65,7 @@ white-space: normal !important;
   float: left;
   font-size: 20px;
 }
-input{
+.num{
   height: 50rpx;
   width: 50rpx;
   padding-right: 15rpx;
@@ -113,7 +113,7 @@ input{
 .sum{
   float: left;
   width: 30%;
-  padding-left: 30px;
+  padding-left: 20px;
   padding-right: 5px;
 }
 .footer_price{
