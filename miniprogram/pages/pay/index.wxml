@@ -49,5 +49,8 @@
     <view class="pay_money">总计:<text class="Total_price">￥118</text></view>
     <view class="submit_order" bindtap="bindSubmitOrder">微信支付</view>
 </view>
+<!-- <view wx:for="{{product}}">
+    <view>{{item.name}}</view>
+</view> -->
 
 

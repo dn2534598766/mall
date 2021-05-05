@@ -106,39 +106,22 @@ Page({
           product_checked:"true",
         },success:function(res){
           that.onLoad()
+          
         }
       })
-      for(let x=0;x<that.data.product.length;x++){
-        if(that.data.product[x].checked==""){
-          that.setData({
-            control:""
-          })
-        }else{
-          that.setData({
-            control:"true"
-          })
-        }
-      }
+      
     }else{
       db.collection('shopping_carts').doc(e.target.dataset.id).update({
         data:{
           product_checked:""
         },success:function(){
           that.onLoad()
-        }
-      })
-      for(let x=0;x<that.data.product.length;x++){
-        if(that.data.product[x].checked==""){
           that.setData({
             control:""
           })
-          return
-        }else{
-          that.setData({
-            control:"true"
-          })
         }
-      }
+      })
+      
     }
     
   },
@@ -252,7 +235,7 @@ Page({
           })
         }else{
           wx.redirectTo({
-            url: '../pay/index'
+            url: '../pay/index?money='+that.data.money+"&product="+JSON.stringify(res)
           })
         }
       },fail:function(res){
