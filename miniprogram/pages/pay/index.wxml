@@ -1,12 +1,12 @@
 <view class="Receiving_address">
     <view>
-        <view class="name_iphone">广东省广州市白云区</view>
-        <view class="address">广东机电职业技术学院北校区</view>
-        <view class="name_iphone">吴昊霖 12345678978</view>
+        <!-- <view class="name_iphone">广东省广州市白云区</view> -->
+        <view class="address">{{address}}</view>
+        <view class="name_iphone">{{name}}  {{num}}</view>
     </view>
     <view><image src="images/2.png" class="iconfont icon-arrowright"></image></view>
 </view>
-<view class="goods_msg">
+<!-- <view class="goods_msg" >
     <view class="goods_img"><image src="images/5.jpg"></image></view>
     <view class="goods_content">
         <view class="goods_content_1">
@@ -16,9 +16,23 @@
         <view class="Total_price">￥118.00</view>
     </view>
    
+</view> -->
+<view class="goods_msg" wx:for="{{product}}">
+    <image class="goods_img" src="{{item.src}}" />
+    <!-- <view class="goods_content"> -->
+        <view class="goods_content_1">
+        {{item.name}}
+        </view>
+        <text class="num">×{{item.num}}</text>
+        <!-- <view class="name_iphone">颜色:黑色，尺码:S</view> -->
+        <view class="Total_price">￥{{item.price}}</view>
+    <!-- </view> -->
+   
 </view>
-
-
+<view class="beizhu" >
+  <view>备注：</view>
+  <textarea placeholder="请填入备注" bindinput="beizhu"></textarea>
+</view>
  
 <view class="msg_list">
     <view class="msg_item">
@@ -35,19 +49,21 @@
     </view>
     <view class="msg_item">
         <view>商品优惠</view>
-        <view class='fare'>-￥2</view>
+        <view class='fare'>暂无</view>
     </view>
     <view class="Total">
-       总计 <text class="Total_price">￥118</text>
+       总计 <text class="Total_price">￥{{money}}</text>
     </view>
 </view>
 <view class="final_pay">
     <view class=""><image src='images/3.png' class="iconfont icon-map_line pay_icon"></image>微信支付</view>
     <view><image src='images/4.png' class="iconfont icon-arrowright pay_icon"></image></view>
 </view>
+<!-- <view class="kong"></view> -->
 <view class="order_pay">
-    <view class="pay_money">总计:<text class="Total_price">￥118</text></view>
-    <view class="submit_order" bindtap="bindSubmitOrder">微信支付</view>
+
+    <view class="pay_money">总计:<text class="Total_price">￥{{money}}</text></view>
+    <view class="submit_order" bindtap="pay">微信支付</view>
 </view>
 <!-- <view wx:for="{{product}}">
     <view>{{item.name}}</view>

@@ -67,7 +67,8 @@ data-src="{{item.src}}" data-id="{{item.id}}">
           <view class="commodity-price">
             ￥{{item.price}}
           </view>
-          <image class="commodity-img2" src="../../images/add.png" />
+          <image class="commodity-img2" catchtap="addCart" data-name="{{item.name}}" data-price="{{item.price}}" 
+data-src="{{item.src}}" data-id="{{item.id}}" src="../../images/add.png" />
         </view>
       </view>
   </view>

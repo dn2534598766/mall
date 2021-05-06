@@ -36,14 +36,16 @@
     <text class="gongneng_text2">砍价</text>
     <text class="jiantou">></text>
   </view>
-  <view class="gongneng3">
-    <image class="gongneng_img2" src="./image/tj.png"/>
-    <text class="gongneng_text2">推荐</text>
+  <view class="gongneng3" bindtap="setting">
+    <image class="gongneng_img2" src="./image/sz.png"/>
+    <!-- <text class="gongneng_text2" bindtap="contact">联系客服</text> -->
+    <text class="gongneng_text4">账号与安全</text>
     <text class="jiantou">></text>
   </view>
-  <view class="gongneng4" bindtap="setting">
-    <image class="gongneng_img4" src="./image/sz.png"/>
-    <text class="gongneng_text4">账号与安全</text>
+  <view class="gongneng4" >
+    <image class="gongneng_img4" src="./image/kefu.png"/>
+    
+    <button class="gongneng_text2"  open-type="contact" size="mini"  type="primary">联系客服</button>
     <text class="jiantou">></text>
   </view>
 </view>

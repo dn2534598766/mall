@@ -55,6 +55,7 @@ Page({
     //     console.log('获取shopping_carts云数据库失败',res)
     //   }
     // })
+    this.onLoad()
   },
 
   /**

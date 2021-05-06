@@ -16,8 +16,8 @@ page {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20rpx;
-    height: 200rpx;
+    margin-top: 20rpx;
+    height: 150rpx;
     background: white;
     border-radius: 10rpx;
     padding: 30rpx;
@@ -25,10 +25,10 @@ page {
 .name_iphone {
    
     color: #7e7e7e;
-    font-size: 24rpx;
+    font-size: 40rpx;
 }
 .address {
-    font-size: 32rpx;
+    font-size: 40rpx;
     padding: 20rpx 0;
 }
 
@@ -48,37 +48,42 @@ page {
 }
 .goods_msg {
     display: flex;
-    margin: 20rpx;
+    margin-top: 20rpx;
     background: white;
     border-radius: 10rpx;
-    padding: 30rpx;
     align-items: center;
+    height: 90px;
+    position: relative;
 }
 .goods_img {
-    width: 100rpx;
-    height: 100rpx;
+    width: 80px;
+    height: 100%;
     overflow: hidden;
     margin-right: 20rpx;
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
 }
-.goods_img image {
-    width: 100%;
-    height: 100%;
+
+/* .goods_content {
     
-}
-.goods_content {
-    flex: 1;
-    font-size: 24rpx;
+    font-size: 30rpx;
+   width: 65%;
    
-}
+} */
 .goods_content_1{
-    overflow: hidden;    
- 	text-overflow: ellipsis; 
- 	white-space: nowrap;
- 	width: 570rpx;
+    width: 65%;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    position: absolute;
+    top: 3%;
+    left: 85px;
 }
 .msg_list {
-    margin: 20rpx;
+    margin-top: 20rpx;
     background: white;
     border-radius: 10rpx;
 }
@@ -98,6 +103,9 @@ page {
 .Total_price {
     color:red;
     font-size: 32rpx;
+    position: absolute;
+    bottom: 2%;
+    left: 85px;
 }
 .order_pay {
     display: flex;
@@ -123,18 +131,19 @@ page {
     margin-left: 30rpx;
 }
 .fare{
-    color: red;
+    color: gray;
 }
 .tran{
     font-size:25rpx
 }
 .final_pay{
+    /* height: 100px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20rpx 20rpx 20rpx;
-    height: 15rpx;
-    line-height: 200rpx;
+    margin-top: 20rpx;
+    height: 20px;
+    line-height: 150px;
     background: white;
     border-radius: 10rpx;
     padding: 30rpx;
@@ -143,6 +152,20 @@ page {
 width:25rpx;
 height:25rpx;
 }
-
-
-
+.num{
+    color: gray;
+    position: absolute;
+    right: 2%;
+    top: 5%;
+    font-size: 30rpx
+}
+.kong{
+    height: 15rpx;
+}
+.beizhu{
+    background-color: white;
+    margin-top: 20rpx;
+}
+textarea{
+    height: 100px;
+}

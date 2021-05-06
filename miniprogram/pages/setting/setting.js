@@ -1,4 +1,4 @@
-// pages/setting/setting.js
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -12,7 +12,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.getSetting({
+      success (res){
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function(res) {
+              console.log(res.userInfo)
+            }
+          })
+        }
+      }
+    })
   },
 
   /**
@@ -64,6 +75,48 @@ Page({
 
   },
   address(){
-    wx.navigateTo({ url: '/pages/addressList/index', })
+    // wx.navigateTo({ url: '/pages/addressList/index', })
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.address']) {
+          wx.authorize({
+            scope: 'scope.address',
+            success () {
+              wx.chooseAddress({
+                success (res) {
+                  db.collection('address').add({
+                    data:{
+                      name:res.userName,
+                      num:res.telNumber,
+                      address:res.provinceName+res.cityName+res.countyName+res.detailInfo
+                    },
+                    success(res){
+                      console.log('添加地址成功'+res)
+                      wx.showToast({
+                        title: '设置地址成功!',
+                      })
+                    },
+                    fail(res){
+                      console.log(res)
+                    }
+                  })
+                }
+              })
+            }
+          })
+        }else{
+          wx.authorize({
+            scope: 'scope.address',
+            success () {
+              wx.chooseAddress({
+                success (res) {
+                  console.log(res)
+                }
+              })
+            }
+          })
+        }
+      }
+    })
   }
 })

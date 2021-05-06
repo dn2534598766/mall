@@ -163,6 +163,7 @@ Page{
   position: absolute;
   top: 20rpx;
   left: 100rpx;
+
 }
 .gongneng3{
   height: 100rpx;
