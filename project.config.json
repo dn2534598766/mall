@@ -37,9 +37,10 @@
     "packNpmRelationList": [],
     "minifyWXSS": true
   },
-  "appid": "wxad2ea5ceb6401622",
+  "appid": "wx8db3d5ba7ce958b2",
   "projectname": "mall",
   "libVersion": "2.14.1",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {
       "list": []

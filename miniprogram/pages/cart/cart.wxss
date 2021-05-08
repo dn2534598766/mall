@@ -26,7 +26,8 @@
 .detail{
   width: 100%;
   height: 100px;
-  margin-top: 3%;
+  /* margin-top: 3%; */
+  background-color: white;
 }
 .right{
   height: 200rpx;
@@ -91,7 +92,7 @@ white-space: normal !important;
   width: 100%;
   height: 50px;
   bottom: 0;
-
+  background-color: white;
 }
 .all{
   margin-left: 10px;
@@ -134,5 +135,43 @@ button {
 .pay{
   background-color: red;
   height: 100%;
+  color: white;
+}
+.kong{
+  background-color: #f6f6f6;
+  width: 100%;
+  height: 100%;
+}
+Page{
+  width: 100%;
+  height: 100%;
+  background-color: #f6f6f6;
+}
+.kong_text{
+  color:black;
+  position: relative;
+}
+.kong_whole{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  width: 100%;
+}
+.kong_img{
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  bottom: 50px;
+  left: 28.5px;
+}
+.kong_btn{
+  position: absolute;
+  top: 50px;
+  left: 13.5px;
+  width: 90px;
+  height: 40px;
+  line-height: 40px;
+  background-color: red;
   color: white;
 }

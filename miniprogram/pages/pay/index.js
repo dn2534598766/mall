@@ -6,24 +6,38 @@ Page({
     product:[],
     address:'',
     num:'',
-    name:''
+    name:'',
+    control:false
   },
   onLoad(option){
     let that=this
+    if(option.product){
     let product=JSON.parse(option.product)
     let product2=product.data
+
     this.setData({
       money:option.money,
       product:product2
     })
+    }
+
+    
     db.collection('address').get({
       success(res){
+        console.log(res.data.length)
         console.log(res.data[res.data.length-1].address)
+        
+        console.log(that.data.control)
         that.setData({
           address:res.data[res.data.length-1].address,
           name:res.data[res.data.length-1].name,
           num:res.data[res.data.length-1].num
         })
+        if(res.data.length!=0){
+          that.setData({
+            control:"true"
+          })
+        }
       },
       err(res){
         console.log('获取address云数据库失败',res)
@@ -89,6 +103,58 @@ Page({
     console.log(e)
     that.setData({
       beizhu:e.detail.value
+    })
+  },
+  address(){
+    let that = this
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.address']) {
+          wx.authorize({
+            scope: 'scope.address',
+            success () {
+              wx.chooseAddress({
+                success (res) {
+                  db.collection('address').add({
+                    data:{
+                      name:res.userName,
+                      num:res.telNumber,
+                      address:res.provinceName+res.cityName+res.countyName+res.detailInfo
+                    },
+                    success(res2){
+                      console.log('添加地址成功'+res2)
+                      wx.showToast({
+                        title: '设置地址成功!',
+                      })
+                      console.log(res)
+                      that.setData({
+                        control:true,
+                        name:res.userName,
+                        num:res.telNumber,
+                        address:res.provinceName+res.cityName+res.countyName+res.detailInfo
+                      })
+                    },
+                    fail(res){
+                      console.log(res)
+                    }
+                  })
+                }
+              })
+            }
+          })
+        }else{
+          wx.authorize({
+            scope: 'scope.address',
+            success () {
+              wx.chooseAddress({
+                success (res) {
+                  console.log(res)
+                }
+              })
+            }
+          })
+        }
+      }
     })
   }
 })

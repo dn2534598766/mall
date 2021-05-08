@@ -1,0 +1,96 @@
+<view class="swiper-tab">
+  <block wx:for="{{swipertab}}" wx:key="sptab">
+    <view class="swiper-tab-list {{currtab == item.index ? 'on' : ''}}" data-current="{{item.index}}" bindtap="tabSwitch">{{item.name}}</view>
+  </block>
+</view>
+ 
+<swiper current="{{currtab}}" class="swiper-box" duration="300" style="height:{{deviceH-31}}px" bindchange="tabChange">
+  <!-- 全部 -->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true">
+      <view  class="orderDetails" wx:for="{{product}}" wx:key=" ">
+        <view class="orderListTitle">
+          <text class="userName">下单时间: {{item.time}}</text>
+          <text class="orderStatus">{{item.product_state}}</text>
+        </view>
+        <!-- <view class="orderListDetails">
+          <view class="productImg">
+            <image src="{{item.url}}" background-size="cover"></image>
+          </view>
+          <view class="productInfo">
+            <view class="productTitle">预定时间: {{item.time}}</view>
+            <text class="productPrice">当前状态：{{item.status}}</text>
+          </view>
+        </view> -->
+        <view class="detail" wx:for="{{item.product}}" catchtouchmove="true" >
+          <image class="product_img" src="{{item.src}}" />
+          <view class="product_detail">{{item.name}}</view>
+          <view class="product_detail2">
+            <view class="product_price">￥{{item.price}}</view>
+            <view class="product_num">×{{item.num}}</view>
+          </view>
+        </view>
+        <view class="allPrice">总价为:<text class="money">￥{{item.money}}</text></view>
+        <view>删除订单</view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  
+  <!-- 待支付 -->
+  <swiper-item>
+    <view class="kong">
+      <view class="kong_whole">
+        <view class="kong_text">
+          <image class="kong_img" src="../../images/dingdan.png" />
+          当前没有待支付的订单
+        </view>
+        </view>
+    </view>
+  </swiper-item>
+  <!-- 待发货 -->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true">
+      <view class="orderDetails" wx:for="{{waitPayOrder}}" wx:key=" ">
+        <view class="orderListTitle">
+           <text class="userName">{{item.name}}</text>
+          <text class="orderStatus">{{item.state}}</text>
+        </view>
+        <view class="orderListDetails">
+          <view class="productImg">
+            <image src="{{item.url}}" background-size="cover"></image>
+          </view>
+          <view class="productInfo">
+            <view class="productTitle">预定时间: {{item.time}}</view>
+            <text class="productPrice">当前状态：{{item.status}}</text>
+          </view>
+        </view>
+        <view class="productCount">
+          <view>
+             <text>合计：￥{{item.money}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <view class="kong">
+      <view class="kong_whole">
+        <view class="kong_text">
+          <image class="kong_img" src="../../images/dingdan.png" />
+          当前没有待收货的订单
+        </view>
+        </view>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view class="kong">
+      <view class="kong_whole">
+        <view class="kong_text">
+          <image class="kong_img" src="../../images/pingjia.png" />
+          当前没有待评价的订单
+        </view>
+        </view>
+    </view>
+  </swiper-item>
+ 
+</swiper>

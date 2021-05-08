@@ -1,7 +1,7 @@
 // 使用了 async await 语法
 const cloud = require('wx-server-sdk')
 cloud.init({
-  env: 'xly-psniq',
+  env: 'cloud1-0gpqxhoq044253ee',
 })
 
 

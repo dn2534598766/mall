@@ -1,5 +1,5 @@
-
-<view wx:for="{{product}}"wx:key="_id">
+<view wx:if="{{control2}}">
+<view wx:for="{{product}}"wx:key="_id" >
   <view class="detail">
     <view class="round_container">
       <checkbox-group data-id="{{item._id}}" bindchange="xuanze">
@@ -18,9 +18,7 @@
       </view>
 
   </view>
-</view>
-
-<view class="footer">
+  <view class="footer">
   <radio class="all" bindtap="all" color="red" checked="{{control}}">
     <text class="all_text">全选</text>
   </radio>
@@ -31,3 +29,17 @@
   </view>
   <button class="pay" bindtap="pay">去结算</button>
 </view>
+</view>
+</view>
+<view class="kong" wx:else>
+  <view class="kong_whole">
+    
+    <view class="kong_text">
+      <image class="kong_img" src="../../images/shopping.png" />
+      购物车空空如也!
+      <button class="kong_btn" bindtap="toIndex">去逛逛</button>
+    </view>
+
+  </view>
+</view>
+

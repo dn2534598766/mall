@@ -9,6 +9,7 @@ Page({
     search:[],
     isShowSideslip: false,
     sideslipMenuArr: ['衬衫', 'T恤', '西装', '短裤'],
+ 
   },
 
   /**

@@ -1,7 +1,7 @@
 <view class="container">
   <view class="search">
     <input placeholder="请输入要搜索的商品" bindconfirm="search" confirm-type="done"/>
-    <image src='cloud://xly-psniq.786c-xly-psniq-1300695130/img/icon/search.png' style="width:50rpx; height:50rpx"/>
+    <image src='cloud://cloud1-0gpqxhoq044253ee.636c-cloud1-0gpqxhoq044253ee-1305822269/img/icon/search.png' style="width:50rpx; height:50rpx"/>
   </view>
   <swiper autoplay="true" circular="true" interval="2000" >
     <swiper-item wx:for="{{banner}}" wx:key="this" >
@@ -20,14 +20,14 @@
       <view class="top">西装</view>
       <view class="bottom">69元起></view>
     </view>
-    <image class="recommend-img" src="cloud://xly-psniq.786c-xly-psniq-1300695130/img/sort/suit.png"  />
+    <image class="recommend-img" src="cloud://cloud1-0gpqxhoq044253ee.636c-cloud1-0gpqxhoq044253ee-1305822269/img/sort/suit.png"  />
   </view>
   <view class="recommend2">
     <view class="recommend-text">
       <view class="top">短裤</view>
       <view class="bottom">49元起></view>
     </view>
-    <image class="recommend-img" src="cloud://xly-psniq.786c-xly-psniq-1300695130/img/sort/short.png"  />
+    <image class="recommend-img" src="cloud://cloud1-0gpqxhoq044253ee.636c-cloud1-0gpqxhoq044253ee-1305822269/img/sort/short.png"  />
   </view>
   <view style="display:inline-block;"></view>
 </view>
@@ -37,14 +37,14 @@
       <view class="top">衬衫</view>
       <view class="bottom">69元起></view>
     </view>
-    <image class="recommend-img" src="cloud://xly-psniq.786c-xly-psniq-1300695130/img/sort/shirt.png"  />
+    <image class="recommend-img" src="cloud://cloud1-0gpqxhoq044253ee.636c-cloud1-0gpqxhoq044253ee-1305822269/img/sort/shirt.png"  />
   </view>
   <view class="recommend2">
     <view class="recommend-text">
       <view class="top">短袖</view>
       <view class="bottom">59元起></view>
     </view>
-    <image class="recommend-img" src="cloud://xly-psniq.786c-xly-psniq-1300695130/img/sort/T-shirt.png"  />
+    <image class="recommend-img" src="cloud://cloud1-0gpqxhoq044253ee.636c-cloud1-0gpqxhoq044253ee-1305822269/img/sort/T-shirt.png"  />
   </view>
 </view>
 

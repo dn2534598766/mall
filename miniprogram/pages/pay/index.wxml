@@ -1,8 +1,14 @@
-<view class="Receiving_address">
-    <view>
+<view class="Receiving_address" wx:if="{{control}}">
+    <view bindtap="address">
         <!-- <view class="name_iphone">广东省广州市白云区</view> -->
         <view class="address">{{address}}</view>
         <view class="name_iphone">{{name}}  {{num}}</view>
+    </view>
+    <view><image src="images/2.png" class="iconfont icon-arrowright"></image></view>
+</view>
+<view class="Receiving_address" wx:else>
+    <view bindtap="address">
+        去添加收货地址
     </view>
     <view><image src="images/2.png" class="iconfont icon-arrowright"></image></view>
 </view>

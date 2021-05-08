@@ -10,7 +10,8 @@ Page({
     control:"",
     money:0,
     delet_id:[],
-    count:0
+    count:0,
+    control2:true,
   },
 
   /**
@@ -21,6 +22,15 @@ Page({
     db.collection('shopping_carts').get({
       success:function(res){
         console.log('获取购物车商品成功',res)
+        if(res.data.length==0){
+          that.setData({
+            control2:false
+          })
+        }else if(res.data.length!=0){
+          that.setData({
+            control2:true
+          })
+        }
         that.setData({
           product:res.data,
         })
@@ -244,6 +254,11 @@ Page({
       }
     })
   },
+  toIndex(){
+    wx.switchTab({
+      url:'../../pages/index/index'
+    })
+  }
   // number(){
   //   let that = this
   //   let count=that.data.count

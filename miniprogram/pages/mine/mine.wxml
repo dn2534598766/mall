@@ -1,6 +1,8 @@
 <view class="header">
-  <image src="" class="touxiang" />
-  <text class="name">用户名</text>
+  <!-- <image src="" class="touxiang" />
+  <text class="name">用户名</text> -->
+  <open-data type="userAvatarUrl" class="touxiang"></open-data>
+  <open-data type="userNickName" class="name"></open-data>
   <view class="vip">
   <image class="v" src="v.png" style="margin-top:24rpx"/>
   <text class="b">获取会员专属权益</text>
