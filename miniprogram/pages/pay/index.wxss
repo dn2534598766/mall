@@ -105,7 +105,7 @@ page {
     font-size: 32rpx;
     position: absolute;
     bottom: 2%;
-    left: 85px;
+    right: 2%;
 }
 .order_pay {
     display: flex;
@@ -168,4 +168,18 @@ height:25rpx;
 }
 textarea{
     height: 100px;
+}
+.Total_price2{
+    color:red;
+    font-size: 32rpx;
+    /* position: absolute;
+    bottom: 2%;
+    right: 2%; */
+}
+.Total_price3{
+    color:red;
+    font-size: 32rpx;
+    /* position: absolute;
+    bottom: 2%;
+    right: 2%; */
 }

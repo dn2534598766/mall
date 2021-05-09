@@ -13,7 +13,7 @@
   <view class="jifen">0<view class="jifen2">积分</view></view>
   <view class="youhui">0<view class="youhuui2">优惠券</view></view>
 </view>
-<view class="dingdan">
+<view class="dingdan" bindtap="detail">
   <text class="dingdan_text">订单信息</text>
   <text class="dingdan_text2">查看全部订单 ></text>
 </view>

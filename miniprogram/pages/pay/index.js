@@ -78,10 +78,11 @@ Page({
                         console.log('商品销量自加成功',res)
                       }
                     })
-                  }
-                  wx.switchTab({
-                    url: '../cart/cart',
+                  }wx.showToast({
+                    title: '下单成功!',
                   })
+                  setTimeout(that.tiaozhuan,500)
+                  
                 },fail:function(res){
                   console.log('购物车删除失败',res)
                 }
@@ -97,6 +98,11 @@ Page({
       })
     }
     
+  },
+  tiaozhuan(){
+    wx.switchTab({
+      url: '../cart/cart',
+    })
   },
   beizhu:function(e){
     let that = this

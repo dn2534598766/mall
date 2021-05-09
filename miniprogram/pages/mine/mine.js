@@ -70,5 +70,8 @@ Page({
   },
   contact(){
     
+  },
+  detail(){
+    wx.navigateTo({ url: '/pages/order/order', })
   }
 })

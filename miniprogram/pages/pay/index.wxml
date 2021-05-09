@@ -58,7 +58,7 @@
         <view class='fare'>暂无</view>
     </view>
     <view class="Total">
-       总计 <text class="Total_price">￥{{money}}</text>
+       总计 <text class="Total_price2">￥{{money}}</text>
     </view>
 </view>
 <view class="final_pay">
@@ -68,7 +68,7 @@
 <!-- <view class="kong"></view> -->
 <view class="order_pay">
 
-    <view class="pay_money">总计:<text class="Total_price">￥{{money}}</text></view>
+    <view class="pay_money">总计:<text class="Total_price3">￥{{money}}</text></view>
     <view class="submit_order" bindtap="pay">微信支付</view>
 </view>
 <!-- <view wx:for="{{product}}">

@@ -7,7 +7,11 @@ Page({
   data: {
     currtab: 0,
     swipertab: [{ name: '全部', index: 0 }, { name: '待支付', index: 1 }, { name: '待发货', index: 2 },{name:'待收货',index:3},{name:'待评价',index:4}],
-    product:[]
+    product:[],
+    control:true,
+    deviceW:0,
+    deviceH:0
+
     // ,{name:'待收货',index:3},{name:'待发货',index:4}
   },
  
@@ -18,7 +22,17 @@ Page({
     let that = this
     db.collection('order').get({
       success:function(res){
+        console.log(res.data.length)
         console.log('获取订单商品成功',res)
+        if(res.data.length==0){
+          that.setData({
+            control:false
+          })
+        }else if(res.data.length!=0){
+          that.setData({
+            control:true
+          })
+        }
         that.setData({
           product:res.data
         })
@@ -27,6 +41,19 @@ Page({
       }
     })
   },
+  // onShow(){
+  //   let that = this
+  //   db.collection('order').get({
+  //     success:function(res){
+  //       console.log('获取订单商品成功',res)
+  //       that.setData({
+  //         product:res.data
+  //       })
+  //     },fail:function(res){
+  //       console.log('获取订单商品失败',res)
+  //     }
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -80,7 +107,7 @@ Page({
   },
   alreadyShow: function(){
     this.setData({
-      alreadyOrder: [{ name: "跃动体育运动俱乐部(圆明园店)", state: "交易成功", time: "2018-09-30 14:00-16:00", status: "已结束", url: "../../images/bad0.png", money: "132" }, { name: "跃动体育运动俱乐部(圆明园店)", state: "交易成功", time: "2018-10-12 18:00-20:00", status: "未开始", url: "../../images/bad3.jpg", money: "205" }]
+      
     })
   },
  
@@ -95,6 +122,16 @@ Page({
       lostOrder: [{ name: "跃动体育运动俱乐部(圆明园店)", state: "已取消", time: "2018-10-4 10:00-12:00", status: "未开始", url: "../../images/bad1.jpg", money: "122" }],
     })
   },
+  delete(e){
+    console.log(e)
+    db.collection('order').where({
+      _id:e.currentTarget.dataset.id
+    }).remove()
+    wx.showToast({
+      title: '删除订单成功',
+    })
+    this.onLoad()
+  }
  
   
 })
