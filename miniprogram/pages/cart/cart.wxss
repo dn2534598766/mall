@@ -15,7 +15,7 @@
 }
 .picture{
   width: 25%;
-  height: 200rpx;
+  height: 103px;
   float: left;
 }
 .round_container{
@@ -25,9 +25,10 @@
 }
 .detail{
   width: 100%;
-  height: 100px;
+  height: 103px;
   /* margin-top: 3%; */
   background-color: white;
+  margin-bottom: 2%;
 }
 .right{
   height: 200rpx;
@@ -44,6 +45,11 @@ word-wrap: break-word;
 white-space: normal !important;
 -webkit-line-clamp: 2;
 -webkit-box-orient: vertical;
+}
+.specs{
+  margin-left: 4%;
+  color: gray;
+  font-size: 15px;
 }
 .price{
   position: absolute;
@@ -174,4 +180,8 @@ Page{
   line-height: 40px;
   background-color: red;
   color: white;
+}
+
+.clear{
+  height: 80rpx;
 }

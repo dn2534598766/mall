@@ -33,11 +33,40 @@ data-src="{{item.src}}" data-id="{{item.id}}">
         <view class="commodity-price">
           ￥{{item.price}}
         </view>
-        <image class="commodity-img2" catchtap="addCart" data-name="{{item.name}}" data-price="{{item.price}}" 
+        <image class="commodity-img2" catchtap="buy" data-name="{{item.name}}" data-price="{{item.price}}" 
 data-src="{{item.src}}" data-id="{{item.id}}" src="../../images/cart_press.png" />
       </view>
     </view>
   </view>
   
+
+  <view  class="mark" hidden='{{selHidden}}' bindtap='hiddenSel'></view>
+  <view class="detail-box" animation="{{animationDataSel}}">
+    <view class="delete" bindtap="delete">×</view>
+    <view class="goods-img-box">
+      <image src="{{item_detail.src}}" class="goods-img"></image>
+      <view class='right-side'>
+        <view class='price'>¥{{item_detail.price}}</view>
+        
+        <view class='type'>已选：{{selTypeList}}</view>
+        <view class='inventory'>库存：{{selStock}}</view>
+      </view>
+    </view>
+    <view class="sel-box">
+      <view class="sel-list" wx:for="{{key}}" wx:for-item="wrapItem" wx:for-index="wrapIndex" wx:key="wrapkey">
+        <view class="sel-title">{{wrapItem[0].name}}</view>
+        <view class="type-list">
+          <view class="type-item {{item.state}}" data-state='{{item.state}}' data-trindex='{{wrapIndex}}' data-val="{{item.val}}" data-tdindex='{{index}}' wx:for="{{wrapItem}}" wx:key="key" bindtap="handleClick">{{item.val}}</view>
+        </view>
+      </view>
+                 
+    </view>
+    <view class="number-box">
+      <view class="control {{plusBan}}" bindtap='plus'>+</view>
+      <view class="control num">{{selNum}}</view>
+      <view class="control {{minusBan}}" bindtap='minus'>-</view>  
+    </view>
+    <view class="confirm-btn {{btnType}}" bindtap='confirm'>确认</view>
+  </view>
 </view>
 

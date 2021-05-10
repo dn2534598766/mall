@@ -9,6 +9,8 @@ Page({
     name:'',
     price:0,
     id:'',
+    color:'',
+    size:'',
 
 
 
@@ -26,57 +28,68 @@ Page({
     all_ids:[],//sku相关数据，用于后续操作
     key: [
       [
-        { val: "塞尔达传说", state: "", name: "颜色", images: "../../dist/images/1.jpg" },
-        { val: "马里欧赛车", state: "", name: "游戏", images: "../../dist/images/2.jpg"},
-        { val: "马里欧奥德赛", state: "", name: "游戏", images: "../../dist/images/3.jpg"},
-        { val: "异度之刃2", state: "", name: "游戏", images: "../../dist/images/4.jpg"}
+        { val: "黑色", state: "", name: "颜色", images: "../../dist/images/1.jpg" },
+        { val: "白色", state: "", name: "颜色", images: "../../dist/images/2.jpg"},
+        { val: "灰色", state: "", name: "颜色", images: "../../dist/images/3.jpg"},
+        { val: "蓝色", state: "", name: "颜色", images: "../../dist/images/4.jpg"}
       ],
       [
-        { val: "中国大陆",name: "版本", state: ""}, 
-        { val: "日版", name: "版本",state: "" },
-        { val:"美版",name: "版本", state: "" }, 
-        { val: "欧版",name: "版本", state: "" }
+        { val: "S",name: "尺寸", state: ""}, 
+        { val: "M", name: "尺寸",state: "" },
+        { val:"L",name: "尺寸", state: "" }, 
+        { val: "XL",name: "尺寸", state: "" },
+        { val: "XXL",name: "尺寸", state: "" },
       ],
-      [
-        { val: "东风快递",name: "快递", state: "" }, 
-        { val: "美团外卖",name: "快递", state: "" }, 
-        { val: "EMS",name: "快递", state: "" }, 
-        { val: "顺丰快递",name: "快递", state: "" }
-      ],
+      // [
+      //   { val: "东风快递",name: "快递", state: "" }, 
+      //   { val: "美团外卖",name: "快递", state: "" }, 
+      //   { val: "EMS",name: "快递", state: "" }, 
+      //   { val: "顺丰快递",name: "快递", state: "" }
+      // ],
       
 
     ],//商品类型相关数据，一般通过调用服务端接口获取（这里可以自行修改数据，我写的数据比较简略）
     sku_list: [
     {
-      'attrs': '塞尔达传说|日版|EMS',
+      'attrs': '白色|L',
       'num': 10,
-      'price':"330.00",
       'sku_id':"a1",
     },
     {
-      'attrs': '塞尔达传说|欧版|东风快递',
+      'attrs': '白色|S',
       'num': 6,
-      'price':"350.00",
       'sku_id':"a2",
     },
     {
-      'attrs': '马里欧赛车|中国大陆|美团外卖',
+      'attrs': '灰色|XL',
       'num': 11,
-      'price':"295.00",
       'sku_id':"a3",
     },
     {
-      'attrs': '马里欧奥德赛|中国大陆|EMS',
+      'attrs': '黑色|S',
       'num': 3,
-      'price':"305.00",
       'sku_id':"a4",
     },
     {
-      'attrs': '异度之刃2|日版|顺丰快递',
+      'attrs': '灰色|M',
       'num': 1,
-      'price':"450.00",
       'sku_id':"a5",
-    },    
+    },   
+    {
+      'attrs': '黑色|XXL',
+      'num': 3,
+      'sku_id':"a6",
+    }, 
+    {
+      'attrs': '蓝色|XL',
+      'num': 13,
+      'sku_id':"a7",
+    }, 
+    {
+      'attrs': '蓝色|L',
+      'num': 5,
+      'sku_id':"a8",
+    }, 
     ]
   },
 
@@ -92,41 +105,41 @@ Page({
       id:options.id
     })
   },
-  addCart(){
-    let that = this
-    db.collection('shopping_carts').where({
-      id:that.data.id
-    }).get({
-      success(res){
-        console.log(res)
-        if(res.data==''){
-          db.collection('shopping_carts').add({
-            data:{
-              name:that.data.name,
-              src:that.data.src,
-              price:that.data.price,
-              id:that.data.id,
-              num:1,
-              product_checked:""
-            },
-            success(res){
-              console.log('加入购物车成功'+res)
-              wx.showToast({
-                title: '加入购物车成功!',
-              })
-            },
-            fail(res){
-              console.log(res)
-            }
-          })
-        }else{
-          wx.showToast({
-            title: '购物车已有这件商品',
-          })
-        }
-      }
-    })
-  },
+  // addCart(){
+  //   let that = this
+  //   db.collection('shopping_carts').where({
+  //     id:that.data.id
+  //   }).get({
+  //     success(res){
+  //       console.log(res)
+  //       if(res.data==''){
+  //         db.collection('shopping_carts').add({
+  //           data:{
+  //             name:that.data.name,
+  //             src:that.data.src,
+  //             price:that.data.price,
+  //             id:that.data.id,
+  //             num:1,
+  //             product_checked:""
+  //           },
+  //           success(res){
+  //             console.log('加入购物车成功'+res)
+  //             wx.showToast({
+  //               title: '加入购物车成功!',
+  //             })
+  //           },
+  //           fail(res){
+  //             console.log(res)
+  //           }
+  //         })
+  //       }else{
+  //         wx.showToast({
+  //           title: '购物车已有这件商品',
+  //         })
+  //       }
+  //     }
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -235,13 +248,48 @@ Page({
     if (this.data.btnType == "buy-ban") {
       return
     }else{
-      let sku_id=this.data.sku_id;
+      // let sku_id=this.data.sku_id;
       let selNum=this.data.selNum;
-      wx.showToast({
-        title: `商品sku_id是${sku_id},购买数量为${selNum}`,
-        icon: 'none',
-        duration: 2000
-      })
+      // wx.showToast({
+      //   title: `商品sku_id是${sku_id},购买数量为${selNum}`,
+      //   icon: 'none',
+      //   duration: 2000
+      // })
+      let that = this
+    db.collection('shopping_carts').where({
+      id:that.data.id
+    }).get({
+      success(res){
+        console.log(res)
+        if(res.data==''){
+          db.collection('shopping_carts').add({
+            data:{
+              name:that.data.name,
+              src:that.data.src,
+              price:that.data.price,
+              id:that.data.id,
+              num:selNum,
+              product_checked:"",
+              color:that.data.color,
+              size:that.data.size
+            },
+            success(res){
+              console.log('加入购物车成功'+res)
+              wx.showToast({
+                title: '加入购物车成功!',
+              })
+            },
+            fail(res){
+              console.log(res)
+            }
+          })
+        }else{
+          wx.showToast({
+            title: '购物车已有这件商品',
+          })
+        }
+      }
+    })
       this.hiddenSel();
     }    
   },
@@ -313,6 +361,18 @@ Page({
   },
   handleClick:function(e){
     //选择商品类型
+    console.log(e.currentTarget.dataset.val)
+    if(e.currentTarget.dataset.val.indexOf("色") != -1){
+      this.setData({
+        color:e.currentTarget.dataset.val
+        
+      })
+    }else{
+      this.setData({
+        size:e.currentTarget.dataset.val
+      })
+    }
+    console.log(this.data.color,this.data.size)
     let that=this;
     let state = e.currentTarget.dataset.state;
     let trindex = e.currentTarget.dataset.trindex;
@@ -498,6 +558,23 @@ Page({
       transformOrigin: "50% 50% 0",
     })  
   },
-
+  delete(){
+    this.hiddenSel()
+  },
+  mine(){
+    wx.switchTab({
+      url: '../mine/mine'
+    })
+  },
+  cart(){
+    wx.switchTab({
+      url: '../cart/cart'
+    })
+  },
+  index(){
+    wx.switchTab({
+      url: '../index/index'
+    })
+  }
 
 })

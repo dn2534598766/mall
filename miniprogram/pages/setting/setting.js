@@ -118,5 +118,10 @@ Page({
         }
       }
     })
+  },
+  nothing(){
+    wx.showToast({
+      title: '暂未开放',
+    })
   }
 })

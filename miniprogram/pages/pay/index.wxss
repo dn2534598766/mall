@@ -183,3 +183,8 @@ textarea{
     bottom: 2%;
     right: 2%; */
 }
+.specs{
+    color: gray;
+    font-size: 15px;
+    margin-top: 5%;
+  }

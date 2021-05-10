@@ -6,7 +6,7 @@ Page({
    */
   data: {
     currtab: 0,
-    swipertab: [{ name: '全部', index: 0 }, { name: '待支付', index: 1 }, { name: '待发货', index: 2 },{name:'待收货',index:3},{name:'待评价',index:4}],
+    swipertab: [{ name: '全部', index: 0 }, { name: '待付款', index: 1 }, { name: '待发货', index: 2 },{name:'待收货',index:3},{name:'待评价',index:4}],
     product:[],
     control:true,
     deviceW:0,
@@ -19,6 +19,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(options){
+      this.setData({
+        currtab:options.num
+      })
+    }
     let that = this
     db.collection('order').get({
       success:function(res){
@@ -131,6 +136,13 @@ Page({
       title: '删除订单成功',
     })
     this.onLoad()
+  },
+  click(e){
+    console.log(e.currentTarget.dataset)
+    let message=e.currentTarget.dataset
+    wx.navigateTo({
+      url: '../detail/detail?name='+message.name+'&src='+message.src+'&price='+message.price+'&id='+message.id
+    })
   }
  
   

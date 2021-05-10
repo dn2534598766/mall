@@ -73,5 +73,30 @@ Page({
   },
   detail(){
     wx.navigateTo({ url: '/pages/order/order', })
+  },
+  pay(){
+    wx.navigateTo({
+      url: '../order/order?num=1'
+    })
+  },
+  fa(){
+    wx.navigateTo({
+      url: '../order/order?num=2'
+    })
+  },
+  shou(){
+    wx.navigateTo({
+      url: '../order/order?num=3'
+    })
+  },
+  ping(){
+    wx.navigateTo({
+      url: '../order/order?num=4'
+    })
+  },
+  nothing(){
+    wx.showToast({
+      title: '暂未开放',
+    })
   }
 })

@@ -62,17 +62,25 @@ Page{
   left: 4%;
 }
 .message{
-  height: 200rpx;
+  height: 80px;
   /* background-color: crimson; */
   border-top: 6rpx solid #f6f6f6;
   background-color: white;
-  position: relative;
+  display: flex;
 }
-.img1{
+.item{
+  flex: 1;
+  text-align: center;
+}
+.item_img{
+  width: 45px;
+  height: 45px;
+}
+/* .img1{
   height: 80rpx;
   width: 80rpx;
   position: absolute;
-  top:10%;
+  top:10px;
   left: 11vw;
 }
 
@@ -90,14 +98,14 @@ Page{
   height: 80rpx;
   width: 80rpx;
   position: absolute;
-  top:10%;
+  top:10px;
   left: 33vw;
 }
 .img3{
   height: 70rpx;
-  width: 70rpx;
+  width: 80rpx;
   position: absolute;
-  top:15%;
+  top:10px;
   left: 56vw;
 }
 .text3{
@@ -109,14 +117,14 @@ Page{
   height: 80rpx;
   width: 80rpx;
   position: absolute;
-  top:10%;
+  top:10px;
   left: 78vw;
 }
 .text4{
   position: absolute;
   top:55%;
   left: 77vw;
-}
+} */
 .gongneng{
   height: 400rpx;
   background-color: #f6f6f6;

@@ -29,8 +29,10 @@
         <view class="goods_content_1">
         {{item.name}}
         </view>
+        <view class="specs">{{item.color}} {{item.size}}</view>
         <text class="num">×{{item.num}}</text>
         <!-- <view class="name_iphone">颜色:黑色，尺码:S</view> -->
+        
         <view class="Total_price">￥{{item.price}}</view>
     <!-- </view> -->
    

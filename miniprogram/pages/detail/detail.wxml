@@ -33,11 +33,11 @@
 </view>
 <view class="footer">
 <view class="footer2">
-  <image class="mine" src="../../images/detail_mine.png"/>
+  <image class="mine" bindtap="mine" src="../../images/detail_mine.png"/>
   <text class="mine_text">我的</text>
-  <image class="cart" src="../../images/detail_cart.png"/>
+  <image class="cart" bindtap="cart" src="../../images/detail_cart.png"/>
   <text class="cart_text">购物车</text>
-  <image class="index" src="../../images/detail_index.png"/>
+  <image class="index" bindtap="index" src="../../images/detail_index.png"/>
   <text class="index_text">店铺</text>
 </view>
 <button class="btn1" bindtap="buy" hover-class="btn-hover">加入购物车</button>
@@ -47,12 +47,16 @@
 
 <view class="message2">商品详情</view>
 <image src="{{src}}"/>
-<view class="mark" hidden='{{selHidden}}' bindtap='hiddenSel'></view>
+
+
+<view  class="mark" hidden='{{selHidden}}' bindtap='hiddenSel'></view>
   <view class="detail-box" animation="{{animationDataSel}}">
+    <view class="delete" bindtap="delete">×</view>
     <view class="goods-img-box">
-      <image src="{{selImg}}" class="goods-img"></image>
+      <image src="{{src}}" class="goods-img"></image>
       <view class='right-side'>
-        <view class='price'>¥{{selPrice}}</view>
+        <view class='price'>¥{{price}}</view>
+        
         <view class='type'>已选：{{selTypeList}}</view>
         <view class='inventory'>库存：{{selStock}}</view>
       </view>
@@ -61,7 +65,7 @@
       <view class="sel-list" wx:for="{{key}}" wx:for-item="wrapItem" wx:for-index="wrapIndex" wx:key="wrapkey">
         <view class="sel-title">{{wrapItem[0].name}}</view>
         <view class="type-list">
-          <view class="type-item {{item.state}}" data-state='{{item.state}}' data-trindex='{{wrapIndex}}' data-tdindex='{{index}}' wx:for="{{wrapItem}}" wx:key="key" bindtap="handleClick">{{item.val}}</view>
+          <view class="type-item {{item.state}}" data-state='{{item.state}}' data-trindex='{{wrapIndex}}' data-val="{{item.val}}" data-tdindex='{{index}}' wx:for="{{wrapItem}}" wx:key="key" bindtap="handleClick">{{item.val}}</view>
         </view>
       </view>
                  

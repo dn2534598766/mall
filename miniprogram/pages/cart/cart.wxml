@@ -9,6 +9,7 @@
       <image class="picture" src="{{item.src}}"/>
       <view class="right">
         <text class="name">{{item.name}}</text>
+        <view class="specs">{{item.color}} {{item.size}}</view>
         <view class="price">￥{{item.price}}</view>
         <view class="count">
           <image src="../../images/cart_sub.png" data-id="{{item._id}}" bindtap="sub" class="sub" />
@@ -30,6 +31,7 @@
   <button class="pay" bindtap="pay">去结算</button>
 </view>
 </view>
+<view class="clear"></view>
 </view>
 <view class="kong" wx:else>
   <view class="kong_whole">

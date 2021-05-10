@@ -233,7 +233,7 @@ button {
   bottom: -980rpx;
   height: 980rpx;
   width: 100%;
-  background-color: #fff;
+  background-color:#FAEBD7;
 }
 .container .detail-box .goods-img-box{
   height: 240rpx;
@@ -355,4 +355,13 @@ button {
   font-size: 26rpx;
   background-color: #f0f0f0;
   font-family: Arial, Helvetica, sans-serif; 
+}
+
+
+
+.delete{
+  position: absolute;
+  right: 4%;
+  top: 5rpx;
+  font-size: 30px;
 }

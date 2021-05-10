@@ -22,13 +22,21 @@
             <text class="productPrice">当前状态：{{item.status}}</text>
           </view>
         </view> -->
-        <view class="detail" wx:for="{{item.product}}" catchtouchmove="true" >
+        <view class="detail" wx:for="{{item.product}}" bindtap="click" data-name="{{item.name}}" data-price="{{item.price}}" 
+data-src="{{item.src}}" data-id="{{item.id}}" catchtouchmove="true" >
+          <view class="size">{{item.color}}{{item.size}}</view>
+          <view class="product_num">×{{item.num}}</view>
           <image class="product_img" src="{{item.src}}" />
-          <view class="product_detail">{{item.name}}</view>
+          <view class="product_detail">{{item.name}}     </view>
+          
+          
           <view class="product_detail2">
+            
             <view class="product_price">￥{{item.price}}</view>
-            <view class="product_num">×{{item.num}}</view>
+            
+            
           </view>
+          
         </view>
         <view class="allPrice">总价为:<text class="money">￥{{item.money}}</text></view>
         <view class="delete" bindtap="delete" data-id="{{item._id}}">删除订单</view>
