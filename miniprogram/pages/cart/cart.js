@@ -18,6 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     let that = this
     db.collection('shopping_carts').get({
       success:function(res){
@@ -110,8 +111,8 @@ Page({
     })
     
     // console.log(e.target.dataset.id)
-    if(e.detail.value.length !== 0){
-      
+    if(e.detail.value.length != 0){
+      console.log(e.detail.value.length)
       db.collection('shopping_carts').doc(e.target.dataset.id).update({
         data:{
           product_checked:"true",
@@ -120,7 +121,24 @@ Page({
           
         }
       })
-      
+      let control3="true"
+     
+      for(let i;i<that.data.product.length;i++){
+        if(product[i].product_checked=="true"){
+
+        }else{
+          control3=false
+        }
+      }
+      if(control3=="true"){
+        that.setData({
+          control:'true'
+        })
+      }else{
+        that.setData({
+          control:''
+        })
+      }
     }else{
       db.collection('shopping_carts').doc(e.target.dataset.id).update({
         data:{

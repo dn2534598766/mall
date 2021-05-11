@@ -7,9 +7,11 @@ Page({
     address:'',
     num:'',
     name:'',
-    control:false
+    control:false,
+    aaa:0
   },
   onLoad(option){
+    console.log(option.product)
     let that=this
     if(option.product){
     let product=JSON.parse(option.product)
@@ -19,6 +21,13 @@ Page({
       money:option.money,
       product:product2
     })
+    }else{
+      console.log(option.product2)
+      let product3=JSON.parse(option.product2)
+      this.setData({
+        product:product3,
+        money:option.money
+      })
     }
 
     
@@ -51,46 +60,60 @@ Page({
     let that = this
     var DATE = util.formatDate(new Date());
     if(that.data.name!==""&&that.data.address!==""&&that.data.phone_number!==""){
-      db.collection('order').add({
-            data:{
-              name:that.data.name,
-              phone_number:that.data.num,
-              address:that.data.address,
-              beizhu:that.data.beizhu,
-              money:that.data.money,
-              product:that.data.product,
-              time:DATE,
-              product_state:"待发货"
-            },success:function(res){
-              console.log('下单成功',res)
-              wx.cloud.callFunction({
-                name:"product_delet",
-                data:{
-                },
-                success:function(res){
-                  console.log('购物车删除成功',res)
-                  for(var i= 0;i<that.data.product.length;i++){
-                    wx.cloud.callFunction({
-                      name:"inc_product_num",
-                      data:{
-                        product_id:that.data.product[i].product_id
-                      },success:function(res){
-                        console.log('商品销量自加成功',res)
-                      }
-                    })
-                  }wx.showToast({
-                    title: '下单成功!',
+      if(that.data.aaa!=1){
+        that.setData({
+          aaa:1
+        })
+
+        db.collection('order').add({
+          data:{
+            name:that.data.name,
+            phone_number:that.data.num,
+            address:that.data.address,
+            beizhu:that.data.beizhu,
+            money:that.data.money,
+            product:that.data.product,
+            time:DATE,
+            product_state:"待发货"
+          },success:function(res){
+            console.log('下单成功',res)
+            wx.cloud.callFunction({
+              name:"product_delet",
+              data:{
+              },
+              success:function(res){
+                console.log('购物车删除成功',res)
+                for(var i= 0;i<that.data.product.length;i++){
+                  wx.cloud.callFunction({
+                    name:"inc_product_num",
+                    data:{
+                      product_id:that.data.product[i].product_id
+                    },success:function(res){
+                      console.log('商品销量自加成功',res)
+                    }
                   })
-                  setTimeout(that.tiaozhuan,500)
-                  
-                },fail:function(res){
-                  console.log('购物车删除失败',res)
                 }
-              })
-            },fail:function(res){
-              console.log('下单失败',res)
-            }
-          })
+                wx.showToast({
+                  title: '下单成功!',
+                }).then(res=>{
+                  
+                  setTimeout(that.tiaozhuan,1000)
+                })
+                
+                
+                
+              },fail:function(res){
+                console.log('购物车删除失败',res)
+              }
+            })
+          },fail:function(res){
+            console.log('下单失败',res)
+          }
+        })
+      }else{
+        
+      }
+      
     }else{
       wx.showToast({
         title: '地址信息有误',
@@ -101,7 +124,7 @@ Page({
   },
   tiaozhuan(){
     wx.switchTab({
-      url: '../cart/cart',
+      url: '../cart/cart'
     })
   },
   beizhu:function(e){

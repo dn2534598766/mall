@@ -49,7 +49,7 @@
     </view>
     <view class="msg_item">
         <view>商品总额</view>
-        <view>￥118</view>
+        <view>￥{{money}}</view>
     </view>
     <view class="msg_item">
         <view>运费</view>

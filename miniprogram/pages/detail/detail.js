@@ -11,6 +11,7 @@ Page({
     id:'',
     color:'',
     size:'',
+    control:'',
 
 
 
@@ -239,7 +240,17 @@ Page({
       }
     }
   },
-  buy:function(){
+  buy:function(e){
+    if(e.currentTarget.dataset.buy=='hhh'){
+      this.setData({
+        control:true
+      })
+    }else{
+      this.setData({
+        control:false
+      })
+    }
+    console.log(this.data.control)
     //立即购买按钮触发
     this.showSelBox();
   },
@@ -256,42 +267,63 @@ Page({
       //   duration: 2000
       // })
       let that = this
-    db.collection('shopping_carts').where({
-      id:that.data.id
-    }).get({
-      success(res){
-        console.log(res)
-        if(res.data==''){
-          db.collection('shopping_carts').add({
-            data:{
-              name:that.data.name,
-              src:that.data.src,
-              price:that.data.price,
-              id:that.data.id,
-              num:selNum,
-              product_checked:"",
-              color:that.data.color,
-              size:that.data.size
-            },
-            success(res){
-              console.log('加入购物车成功'+res)
-              wx.showToast({
-                title: '加入购物车成功!',
-              })
-            },
-            fail(res){
-              console.log(res)
-            }
-          })
-        }else{
-          wx.showToast({
-            title: '购物车已有这件商品',
-          })
+    if(that.data.control==false){
+      db.collection('shopping_carts').where({
+        id:that.data.id
+      }).get({
+        success(res){
+          console.log(res)
+          if(res.data==''){
+            db.collection('shopping_carts').add({
+              data:{
+                name:that.data.name,
+                src:that.data.src,
+                price:that.data.price,
+                id:that.data.id,
+                num:selNum,
+                product_checked:"",
+                color:that.data.color,
+                size:that.data.size
+              },
+              success(res){
+                wx.showToast({
+                  title: '添加购物车成功',
+                })
+              },
+              fail(res){
+                console.log(res)
+              }
+            })
+          }else{
+            
+            wx.showToast({
+              title: '购物车已有这件商品',
+            })
+          }
         }
-      }
-    })
-      this.hiddenSel();
-    }    
+        
+      })
+      
+        this.hiddenSel();
+    }else{
+      
+        console.log(this.data.id)
+        let product=JSON.stringify([{
+          id:this.data.id,
+          name:this.data.name,
+          price:this.data.price,
+          color:this.data.color,
+          size:this.data.size,
+          src:this.data.src,
+          num:this.data.selNum
+        }])
+
+        wx.redirectTo({
+          url: '../pay/index?product2='+product+'&money='+this.data.price
+        })
+      
+      
+    }}    
   },
   hiddenSel: function () {//隐藏选项
     let that = this;
