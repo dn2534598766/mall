@@ -113,6 +113,7 @@ Page({
     // console.log(e.target.dataset.id)
     if(e.detail.value.length != 0){
       console.log(e.detail.value.length)
+      let control3="true"
       db.collection('shopping_carts').doc(e.target.dataset.id).update({
         data:{
           product_checked:"true",
@@ -121,24 +122,23 @@ Page({
           
         }
       })
-      let control3="true"
+      console.log(that.data.product.length)
      
-      for(let i;i<that.data.product.length;i++){
-        if(product[i].product_checked=="true"){
-
-        }else{
-          control3=false
-        }
-      }
-      if(control3=="true"){
-        that.setData({
-          control:'true'
-        })
-      }else{
-        that.setData({
-          control:''
-        })
-      }
+      // for(let i;i<that.data.product.length;i++){
+      //   if(product[i].product_checked=="true"){
+      //     control3="true"
+      //   }else{
+      //     control3=''
+      //     return
+      //   }
+      // }
+      // if(control3=="true"){
+        
+      // }else{
+      //   that.setData({
+      //     control:''
+      //   })
+      // }
     }else{
       db.collection('shopping_carts').doc(e.target.dataset.id).update({
         data:{
