@@ -319,7 +319,7 @@ Page({
         }])
 
         wx.redirectTo({
-          url: '../pay/index?product2='+product+'&money='+this.data.price
+          url: '../pay/index?product2='+product+'&money='+this.data.price*this.data.selNum
         })
       
       

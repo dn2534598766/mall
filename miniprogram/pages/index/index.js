@@ -88,7 +88,6 @@ Page({
    }, 
    ]
   },
-
   onLoad: function() {
     let that=this
     

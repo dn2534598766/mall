@@ -1,5 +1,6 @@
 const db = wx.cloud.database()
 const _ = db.command
+var control3=[]
 Page({
 
   /**
@@ -7,7 +8,7 @@ Page({
    */
   data: {
     product:[],
-    control:"",
+    control:'',
     money:0,
     delet_id:[],
     count:0,
@@ -21,9 +22,9 @@ Page({
     console.log(options)
     let that = this
     db.collection('shopping_carts').get({
-      success:function(res){
-        console.log('获取购物车商品成功',res)
-        if(res.data.length==0){
+      
+    }).then(res=>{
+      if(res.data.length==0){
           that.setData({
             control2:false
           })
@@ -35,10 +36,16 @@ Page({
         that.setData({
           product:res.data,
         })
+        control3=[]
+        for(let i=0;i<that.data.product.length;i++){
+          control3.push(that.data.product[i].product_checked)
+        }
+        if(control3.every(that.control4)){
+          that.setData({
+            control:'true'
+          })
+        }
         that.get_money_sum()
-      },fail:function(res){
-        console.log('获取购物车商品失败',res)
-      }
     })
     // this.number()
   },
@@ -113,32 +120,58 @@ Page({
     // console.log(e.target.dataset.id)
     if(e.detail.value.length != 0){
       console.log(e.detail.value.length)
-      let control3="true"
       db.collection('shopping_carts').doc(e.target.dataset.id).update({
         data:{
           product_checked:"true",
-        },success:function(res){
-          that.onLoad()
-          
         }
-      })
-      console.log(that.data.product.length)
-     
-      // for(let i;i<that.data.product.length;i++){
-      //   if(product[i].product_checked=="true"){
-      //     control3="true"
-      //   }else{
-      //     control3=''
-      //     return
-      //   }
-      // }
-      // if(control3=="true"){
+      }).then(res=>{
         
-      // }else{
-      //   that.setData({
-      //     control:''
-      //   })
-      // }
+        
+        db.collection('shopping_carts').get({
+      
+        }).then(res=>{
+          if(res.data.length==0){
+              that.setData({
+                control2:false
+              })
+            }else if(res.data.length!=0){
+              that.setData({
+                control2:true
+              })
+            }
+            that.setData({
+              product:res.data,
+            })
+            control3=[]
+            for(let i=0;i<that.data.product.length;i++){
+              control3.push(that.data.product[i].product_checked)
+            }
+            console.log(that.data.product,control3,control3.every(that.control4))
+            let end=control3.every(that.control4)
+            if(end){
+              that.setData({
+                control:'true'
+              })
+            }
+            
+            that.get_money_sum()
+        })
+      })
+
+      console.log(control3)
+      console.log(control3.every(that.control4))
+      if(control3.every(that.control4)){
+        that.setData({
+          control:'true'
+        })
+      }else{
+        that.setData({
+          control:''
+        })
+      }
+      
+
+
     }else{
       db.collection('shopping_carts').doc(e.target.dataset.id).update({
         data:{
@@ -153,6 +186,9 @@ Page({
       
     }
     
+  },
+  control4(aaa){
+    return aaa=="true"
   },
   all(e){
     let that = this
