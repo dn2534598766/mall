@@ -254,7 +254,7 @@ Page({
     //立即购买按钮触发
     this.showSelBox();
   },
-  confirm:function(){
+  async confirm(){
     //弹窗确认按钮触发
     if (this.data.btnType == "buy-ban") {
       return
@@ -268,13 +268,53 @@ Page({
       // })
       let that = this
     if(that.data.control==false){
-      db.collection('shopping_carts').where({
-        id:that.data.id
-      }).get({
-        success(res){
-          console.log(res)
-          if(res.data==''){
-            db.collection('shopping_carts').add({
+      // db.collection('shopping_carts').where({
+      //   id:that.data.id
+      // }).get({
+      //   success(res){
+      //     console.log(res)
+      //     if(res.data==''){
+      //       db.collection('shopping_carts').add({
+      //         data:{
+      //           name:that.data.name,
+      //           src:that.data.src,
+      //           price:that.data.price,
+      //           id:that.data.id,
+      //           num:selNum,
+      //           product_checked:"",
+      //           color:that.data.color,
+      //           size:that.data.size
+      //         },
+      //         success(res){
+      //           wx.showToast({
+      //             title: '添加购物车成功',
+      //           })
+      //         },
+      //         fail(res){
+      //           console.log(res)
+      //         }
+      //       })
+      //     }else{
+            
+      //       wx.showToast({
+      //         title: '购物车已有这件商品',
+      //       })
+      //     }
+      //   }
+        
+      // })
+      let res = await wx.cloud.callFunction({
+        name:'product_query',
+        data:{
+          id:that.data.id
+        }
+      })
+      console.log(res)
+  
+          if(res.result.res.data.length==0){
+            
+            let res2 =  wx.cloud.callFunction({
+              name:'product_add',
               data:{
                 name:that.data.name,
                 src:that.data.src,
@@ -284,25 +324,18 @@ Page({
                 product_checked:"",
                 color:that.data.color,
                 size:that.data.size
-              },
-              success(res){
-                wx.showToast({
-                  title: '添加购物车成功',
-                })
-              },
-              fail(res){
-                console.log(res)
               }
-            })
+            }).then(
+              wx.showToast({
+                title: '加入购物车成功!',
+              })
+            )
+            console.log(res2)
           }else{
-            
             wx.showToast({
               title: '购物车已有这件商品',
             })
           }
-        }
-        
-      })
       
         this.hiddenSel();
     }else{

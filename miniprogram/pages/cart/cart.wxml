@@ -3,7 +3,7 @@
   <view class="detail">
     <view class="round_container">
       <checkbox-group data-id="{{item._id}}" bindchange="xuanze">
-        <checkbox class="xuanze"  checked="{{item.product_checked}}" value="{{item._id}}"></checkbox>
+        <checkbox class="xuanze" color="red"  checked="{{item.product_checked}}" value="{{item._id}}"></checkbox>
       </checkbox-group>
     </view>
       <image class="picture" src="{{item.src}}"/>

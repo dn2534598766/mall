@@ -150,6 +150,13 @@
   bottom: 50px;
   left: 30px;
 }
+.kong_img2{
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: 50px;
+  left: 0px;
+}
 .kong_btn{
   position: absolute;
   top: 50px;
@@ -233,6 +240,7 @@ swiper{
 }
 Page{
   height: 100%;
+  background-color: #f6f6f6;
 }
 scroll-view{
   height: 100%;
@@ -241,7 +249,7 @@ scroll-view{
 
   position: absolute;
   top: 42px;
-  left: 95px;
+  left: 88px;
   font-size: 13px;
   color: gray;
 }

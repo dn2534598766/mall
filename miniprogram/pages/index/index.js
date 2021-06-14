@@ -119,51 +119,85 @@ Page({
       }
     })
   },
-  search:function(e){
+  async search(e){
     let that=this
-    db.collection('commodity').where({
-      name:{							
-        $regex:e.detail.value,	
-        $options: 'i'
+    let res = await wx.cloud.callFunction({
+      name:'product_search',
+      data:{
+        name:{							
+              $regex:e.detail.value,	
+              $options: 'i'
+          }
       }
+    }).then(res=>{
+      that.setData({
+          search:res.result.res.data
+      })
+      console.log(that.data.search)
+      if(e.detail.value==""){
+              wx.showToast({
+                title: '输入不能为空',
+                icon:'none'
+              })
+            }else if(that.data.search==''){
+              wx.showToast({
+                title: '未找到商品',
+                icon:'none'
+              })
+            }else{
+              wx.setStorage({
+                  data: res.result.res.data,
+                  key: 'search',
+                })
+               
+              wx.reLaunch({
+                url: '../search/search'
+              })
+            }
+    })
+    // db.collection('commodity').where({
+    //   name:{							
+    //     $regex:e.detail.value,	
+    //     $options: 'i'
+    //   }
       // name:e.detail.value
-    }).get({
-      success:function(res){
-        that.setData({
-          search:res.data
-        })
-        console.log('搜索成功',that.data.search)
+    // }).get({
+    //   success:function(res){
+    //     that.setData({
+    //       search:res.data
+    //     })
+    //     console.log('搜索成功',that.data.search)
         
         // wx.setStorage({
         //   data: res.data,
         //   key: 'search',
         // })
         // console.log(search)
-        if(e.detail.value==""){
-          wx.showToast({
-            title: '输入不能为空',
-            icon:'none'
-          })
-        }else if(that.data.search==''){
-          wx.showToast({
-            title: '未找到商品',
-            icon:'none'
-          })
-        }else{
-          wx.setStorage({
-              data: res.data,
-              key: 'search',
-            })
+    //     if(e.detail.value==""){
+    //       wx.showToast({
+    //         title: '输入不能为空',
+    //         icon:'none'
+    //       })
+    //     }else if(that.data.search==''){
+    //       wx.showToast({
+    //         title: '未找到商品',
+    //         icon:'none'
+    //       })
+    //     }else{
+    //       wx.setStorage({
+    //           data: res.data,
+    //           key: 'search',
+    //         })
            
-          wx.reLaunch({
-            url: '../search/search'
-          })
-        }
-      },
-      fail:function(res){
-        console.log('搜索失败',res)
-      }
-    })
+    //       wx.reLaunch({
+    //         url: '../search/search'
+    //       })
+    //     }
+    //   },
+    //   fail:function(res){
+    //     console.log('搜索失败',res)
+    //   }
+    // })
   },
   click(e){
     console.log(e.currentTarget.dataset)
@@ -231,7 +265,7 @@ Page({
 
     this.showSelBox();
   },
-  confirm:function(){
+  async confirm(){
     //弹窗确认按钮触发
     if (this.data.btnType == "buy-ban") {
       return
@@ -244,13 +278,21 @@ Page({
       //   duration: 2000
       // })
       let that = this
-    db.collection('shopping_carts').where({
-      id:that.data.item_detail.id
-    }).get({
-      success(res){
-        console.log(res)
-        if(res.data==''){
-          db.collection('shopping_carts').add({
+    // db.collection('shopping_carts').where({
+    //   id:that.data.item_detail.id
+    // })
+    let res = await wx.cloud.callFunction({
+      name:'product_query',
+      data:{
+        id:that.data.item_detail.id
+      }
+    })
+    console.log(res)
+
+        if(res.result.res.data.length==0){
+          
+          let res2 =  wx.cloud.callFunction({
+            name:'product_add',
             data:{
               name:that.data.item_detail.name,
               src:that.data.item_detail.src,
@@ -260,24 +302,69 @@ Page({
               product_checked:"",
               color:that.data.color,
               size:that.data.size
-            },
-            success(res){
-              console.log('加入购物车成功'+res)
-              wx.showToast({
-                title: '加入购物车成功!',
-              })
-            },
-            fail(res){
-              console.log(res)
             }
-          })
+          }).then(
+            wx.showToast({
+              title: '加入购物车成功!',
+            })
+          )
+          console.log(res2)
         }else{
           wx.showToast({
             title: '购物车已有这件商品',
           })
         }
-      }
-    })
+
+
+
+
+    // .get({
+    //   success(res){
+    //     console.log(res)
+    //     if(res.data==''){
+    //       db.collection('shopping_carts').add({
+    //         data:{
+    //           name:that.data.item_detail.name,
+    //           src:that.data.item_detail.src,
+    //           price:that.data.item_detail.price,
+    //           id:that.data.item_detail.id,
+    //           num:selNum,
+    //           product_checked:"",
+    //           color:that.data.color,
+    //           size:that.data.size
+    //         },
+    //         success(res){
+    //           console.log('加入购物车成功'+res)
+    //           wx.showToast({
+    //             title: '加入购物车成功!',
+    //           })
+    //         },
+    //         fail(res){
+    //           console.log(res)
+    //         }
+    //       })
+          // res =  wx.cloud.callFunction({
+          //   name:'product_add',
+          //   data:{
+          //     name:that.data.item_detail.name,
+          //     src:that.data.item_detail.src,
+          //     price:that.data.item_detail.price,
+          //     id:that.data.item_detail.id,
+          //     num:selNum,
+          //     product_checked:"",
+          //     color:that.data.color,
+          //     size:that.data.size
+          //   }
+          // }).then(res=>{
+          //   console.log(res)
+          // })
+    //     }else{
+    //       wx.showToast({
+    //         title: '购物车已有这件商品',
+    //       })
+    //     }
+    //   }
+    // })
       this.hiddenSel();
     }    
   },

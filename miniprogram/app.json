@@ -10,7 +10,8 @@
     "pages/cart/cart",
     "pages/detail/detail",
     "pages/pay/index",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/feedback/feedback"
   ],
   "tabBar": {
     "color": "#dbdbdb",

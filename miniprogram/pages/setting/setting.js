@@ -123,5 +123,10 @@ Page({
     wx.showToast({
       title: '暂未开放',
     })
+  },
+  toHelp(){
+    wx.redirectTo({
+      url: '../feedback/feedback',
+    })
   }
 })

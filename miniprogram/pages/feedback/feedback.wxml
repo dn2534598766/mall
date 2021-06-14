@@ -1,0 +1,13 @@
+<view>
+  <view class="one">
+    <image src="arrow-left-bold.png"></image>
+    <text class="title">问题反馈</text>
+  </view>
+  <view class="gray"></view>
+  <view class="two">请输入你的问题或建议：</view>
+  <view class="section">
+  <textarea placeholder="请在这里输入你的问题或建议" value="{{a}}"/>
+  </view>
+  <view class="white"></view>
+  <button form-type="submit" class="bt" bindtap="feedback">提交</button>
+</view>

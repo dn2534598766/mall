@@ -45,8 +45,8 @@ data-src="{{item.src}}" data-id="{{item.id}}" catchtouchmove="true" >
     <view class="kong" wx:else>
       <view class="kong_whole">
         <view class="kong_text">
-          <image class="kong_img" src="../../images/dingdan.png" />
-          当前没有待发货的订单
+          <image class="kong_img2" src="../../images/dingdan.png" />
+          当前没有订单
         </view>
         </view>
     </view>

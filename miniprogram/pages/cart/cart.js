@@ -18,23 +18,23 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  async onLoad(options) {
     console.log(options)
     let that = this
-    db.collection('shopping_carts').get({
-      
+    let res = await wx.cloud.callFunction({
+      name:"show_cart",
     }).then(res=>{
-      if(res.data.length==0){
+      if(res.result.res.data.length==0){
           that.setData({
             control2:false
           })
-        }else if(res.data.length!=0){
+        }else if(res.result.res.data.length!=0){
           that.setData({
             control2:true
           })
         }
         that.setData({
-          product:res.data,
+          product:res.result.res.data,
         })
         control3=[]
         for(let i=0;i<that.data.product.length;i++){
