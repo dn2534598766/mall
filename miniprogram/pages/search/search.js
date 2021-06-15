@@ -95,9 +95,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  async onLoad(options) {
     let search=this.data.search
     let that=this
+    await wx.cloud.callFunction({
+      name:'show_commodity'
+    }).then(res=>{
+         
+        that.setData({
+          search:res.result.res.data
+        })
+    })
     wx.getStorage({
       key: 'search',
       success: function(res) {
@@ -107,16 +115,16 @@ Page({
         })
       },
     })
-    if(search!=[]){
-      this.setData({
-        search
-      })
-    }else{
-      search=app.globaldata.commodity
-      this.setData({
-        search
-      })
-    }
+    // if(search!=[]){
+    //   this.setData({
+    //     search
+    //   })
+    // }else{
+    //   search=app.globaldata.commodity
+    //   this.setData({
+    //     search
+    //   })
+    // }
   },
 
   /**

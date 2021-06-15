@@ -88,36 +88,54 @@ Page({
    }, 
    ]
   },
-  onLoad: function() {
+  async onLoad() {
     let that=this
     
-    db.collection('swiper').get({
-      success(res){
-        console.log('获取swiper云数据库成功',res)
-        that.setData({
-          banner:res.data
-        })
-      },
-      err(res){
-        console.log('获取swiper云数据库失败',res)
-      }
-    }),
-    db.collection('commodity').get({
-      success(res){
-        console.log('获取commodity云数据库成功',res)
-        wx.setStorage({
+    await wx.cloud.callFunction({
+      name:'show_swiper'
+    }).then(res=>{
+      that.setData({
+        banner:res.result.res.data
+      })
+    })
+    await wx.cloud.callFunction({
+      name:'show_commodity'
+    }).then(res=>{
+          wx.setStorage({
           data: res.data,
           key: 'search',
         })
         that.setData({
-          commodity:res.data
+          commodity:res.result.res.data
         })
-        
-      },
-      err(res){
-        console.log('获取commodity云数据库失败',res)
-      }
     })
+    // db.collection('swiper').get({
+    //   success(res){
+    //     console.log('获取swiper云数据库成功',res)
+    //     that.setData({
+    //       banner:res.data
+    //     })
+    //   },
+    //   err(res){
+    //     console.log('获取swiper云数据库失败',res)
+    //   }
+    // })
+    // db.collection('commodity').get({
+    //   success(res){
+    //     console.log('获取commodity云数据库成功',res)
+    //     wx.setStorage({
+    //       data: res.data,
+    //       key: 'search',
+    //     })
+    //     that.setData({
+    //       commodity:res.data
+    //     })
+        
+    //   },
+    //   err(res){
+    //     console.log('获取commodity云数据库失败',res)
+    //   }
+    // })
   },
   async search(e){
     let that=this

@@ -18,33 +18,50 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  async onLoad(options) {
     if(options){
       this.setData({
         currtab:options.num
       })
     }
     let that = this
-    db.collection('order').get({
-      success:function(res){
-        console.log(res.data.length)
-        console.log('获取订单商品成功',res)
-        if(res.data.length==0){
-          that.setData({
-            control:false
-          })
-        }else if(res.data.length!=0){
-          that.setData({
-            control:true
-          })
-        }
+
+    await wx.cloud.callFunction({
+      name:'show_order'
+    }).then(res=>{
+      if(res.result.res.data.length==0){
         that.setData({
-          product:res.data
+          control:false
         })
-      },fail:function(res){
-        console.log('获取订单商品失败',res)
+      }else if(res.result.res.data.length!=0){
+        that.setData({
+          control:true
+        })
       }
+      that.setData({
+        product:res.result.res.data
+      })
     })
+    // db.collection('order').get({
+    //   success:function(res){
+    //     console.log(res.data.length)
+    //     console.log('获取订单商品成功',res)
+    //     if(res.data.length==0){
+    //       that.setData({
+    //         control:false
+    //       })
+    //     }else if(res.data.length!=0){
+    //       that.setData({
+    //         control:true
+    //       })
+    //     }
+    //     that.setData({
+    //       product:res.data
+    //     })
+    //   },fail:function(res){
+    //     console.log('获取订单商品失败',res)
+    //   }
+    // })
   },
   // onShow(){
   //   let that = this
@@ -127,11 +144,18 @@ Page({
       lostOrder: [{ name: "跃动体育运动俱乐部(圆明园店)", state: "已取消", time: "2018-10-4 10:00-12:00", status: "未开始", url: "../../images/bad1.jpg", money: "122" }],
     })
   },
-  delete(e){
+  async delete(e){
     console.log(e)
-    db.collection('order').where({
-      _id:e.currentTarget.dataset.id
-    }).remove()
+    await wx.cloud.callFunction({
+      name:'order_delete',
+      data:{
+        _id:e.currentTarget.dataset.id
+      }
+    })
+    
+    // db.collection('order').where({
+    //   _id:e.currentTarget.dataset.id
+    // }).remove()
     wx.showToast({
       title: '删除订单成功',
     })
