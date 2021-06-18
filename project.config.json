@@ -2,7 +2,7 @@
   "miniprogramRoot": "miniprogram/",
   "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": true,
     "postcss": true,
@@ -38,7 +38,7 @@
   },
   "appid": "wx8db3d5ba7ce958b2",
   "projectname": "mall",
-  "libVersion": "2.14.1",
+  "libVersion": "2.17.3",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {

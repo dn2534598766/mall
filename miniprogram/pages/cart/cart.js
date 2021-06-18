@@ -8,7 +8,7 @@ Page({
    */
   data: {
     product:[],
-    control:'',
+    control:false,
     money:0,
     delet_id:[],
     count:0,
@@ -37,15 +37,30 @@ Page({
           product:res.result.res.data,
         })
         control3=[]
-        for(let i=0;i<that.data.product.length;i++){
-          control3.push(that.data.product[i].product_checked)
+        // let filter = that.data.product.filter(item=>{
+        //   return item.product_checked == 'false'
+        // })
+        // if(filter){
+        //   this.setData({
+        //     control:'false'
+        //   })
+        // }else{
+        //   this.setData({
+        //     control:'true'
+        //   })
+        // }
+        if(that.data.product.length!=0){
+          for(let i=0;i<that.data.product.length;i++){
+            control3.push(that.data.product[i].product_checked)
+          }
+          if(control3.every(that.control4)){
+            that.setData({
+              control:'true'
+            })
+          }
+          that.get_money_sum()
         }
-        if(control3.every(that.control4)){
-          that.setData({
-            control:'true'
-          })
-        }
-        that.get_money_sum()
+        
     })
     // this.number()
   },
@@ -110,7 +125,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-  xuanze(e){
+  async xuanze(e){
     let that=this
     // console.log(e.detail.value[0])
     this.setData({
@@ -173,16 +188,28 @@ Page({
 
 
     }else{
-      db.collection('shopping_carts').doc(e.target.dataset.id).update({
+      await  wx.cloud.callFunction({
+        name:'product_update',
         data:{
+          id:e.target.dataset.id,
           product_checked:""
-        },success:function(){
-          that.onLoad()
-          that.setData({
-            control:""
-          })
         }
+      }).then(res=>{
+        that.onLoad()
+        that.setData({
+          control:""
+        })
       })
+      // db.collection('shopping_carts').doc(e.target.dataset.id).update({
+      //   data:{
+      //     product_checked:""
+      //   },success:function(){
+      //     that.onLoad()
+      //     that.setData({
+      //       control:""
+      //     })
+      //   }
+      // })
       
     }
     
@@ -209,14 +236,23 @@ Page({
         }
         else if(that.data.control=="true"){
           for(let x=0;x<that.data.product.length;x++){
-          db.collection('shopping_carts').doc(that.data.product[x]._id).update({
-            data:{
-              product_checked:""
-            },
-            success:function(){
+            wx.cloud.callFunction({
+              name:'product_update',
+              data:{
+                id:that.data.product[x]._id,
+                product_checked:""
+              }
+            }).then(res=>{
               that.onLoad()
-            }
-          })
+            })
+          // db.collection('shopping_carts').doc(that.data.product[x]._id).update({
+          //   data:{
+          //     product_checked:""
+          //   },
+          //   success:function(){
+          //     that.onLoad()
+          //   }
+          // })
         }
           this.setData({
             control:""
@@ -239,9 +275,18 @@ Page({
       money:money_sum
     })
   },
-  add(e){
+  async add(e){
     let that = this
     // console.log(e.currentTarget.dataset.id)
+    // await wx.cloud.callFunction({
+    //   name:'product_update_num',
+    //   data:{
+    //     id:e.currentTarget.dataset.id
+    //   }
+    // }).then(res=>{
+    //   console.log("商品数量+1",res)
+    //   that.onLoad()
+    // })
     db.collection('shopping_carts').doc(e.currentTarget.dataset.id).update({
       data:{
         num:_.inc(1)
