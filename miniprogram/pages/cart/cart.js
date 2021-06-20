@@ -188,28 +188,28 @@ Page({
 
 
     }else{
-      await  wx.cloud.callFunction({
-        name:'product_update',
-        data:{
-          id:e.target.dataset.id,
-          product_checked:""
-        }
-      }).then(res=>{
-        that.onLoad()
-        that.setData({
-          control:""
-        })
-      })
-      // db.collection('shopping_carts').doc(e.target.dataset.id).update({
+      // await  wx.cloud.callFunction({
+      //   name:'product_update',
       //   data:{
+      //     id:e.target.dataset.id,
       //     product_checked:""
-      //   },success:function(){
-      //     that.onLoad()
-      //     that.setData({
-      //       control:""
-      //     })
       //   }
+      // }).then(res=>{
+      //   that.onLoad()
+      //   that.setData({
+      //     control:""
+      //   })
       // })
+      db.collection('shopping_carts').doc(e.target.dataset.id).update({
+        data:{
+          product_checked:""
+        },success:function(){
+          that.onLoad()
+          that.setData({
+            control:""
+          })
+        }
+      })
       
     }
     
@@ -236,23 +236,23 @@ Page({
         }
         else if(that.data.control=="true"){
           for(let x=0;x<that.data.product.length;x++){
-            wx.cloud.callFunction({
-              name:'product_update',
-              data:{
-                id:that.data.product[x]._id,
-                product_checked:""
-              }
-            }).then(res=>{
+            // wx.cloud.callFunction({
+            //   name:'product_update',
+            //   data:{
+            //     id:that.data.product[x]._id,
+            //     product_checked:""
+            //   }
+            // }).then(res=>{
+            //   that.onLoad()
+            // })
+          db.collection('shopping_carts').doc(that.data.product[x]._id).update({
+            data:{
+              product_checked:""
+            },
+            success:function(){
               that.onLoad()
-            })
-          // db.collection('shopping_carts').doc(that.data.product[x]._id).update({
-          //   data:{
-          //     product_checked:""
-          //   },
-          //   success:function(){
-          //     that.onLoad()
-          //   }
-          // })
+            }
+          })
         }
           this.setData({
             control:""

@@ -8,8 +8,9 @@ cloud.init({
 // 云函数入口函数
 exports.main = async (event, context) => {
   const db = cloud.database()
+  let { OPENID } = cloud.getWXContext()
   const collectionDirection = db.collection('shopping_carts')
-  let res = await collectionDirection.get()
+  let res = await collectionDirection.where({_openid:OPENID}).get()
   console.log(res)
   return {
     res
